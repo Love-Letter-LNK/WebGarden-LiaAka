@@ -1,0 +1,116 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ============ USER & AUTH ============
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  role         String   @default("user") // "admin" or "user"
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// ============ MEMORIES ============
+
+model Memory {
+  id        String        @id @default(cuid())
+  slug      String        @unique
+  title     String
+  date      DateTime
+  category  String
+  tags      String        // Comma-separated string for SQLite compatibility
+  mood      String?
+  quote     String?
+  story     String?
+  location  String?
+  images    MemoryImage[]
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+}
+
+model MemoryImage {
+  id        String   @id @default(cuid())
+  memoryId  String
+  memory    Memory   @relation(fields: [memoryId], references: [id], onDelete: Cascade)
+  url       String
+  alt       String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+// ============ NEWS ============
+
+model News {
+  id        String   @id @default(cuid())
+  title     String
+  date      DateTime
+  category  String   // celebration, date, announcement, update
+  emoji     String   @default("📰")
+  content   String?
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ============ JOURNEY (Timeline Milestones) ============
+
+model Journey {
+  id          String   @id @default(cuid())
+  title       String
+  date        DateTime
+  description String?
+  icon        String   @default("💕")
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ============ PROFILES (Zekk & Lia) ============
+
+model Profile {
+  id           String   @id @default(cuid())
+  slug         String   @unique // "zekk" or "lia"
+  name         String
+  nickname     String?
+  bio          String?
+  birthDate    String?
+  hobbies      String?  // Comma-separated
+  likes        String?  // Comma-separated
+  loveLanguage String?
+  funFacts     String?  // JSON array as string for SQLite
+  avatar       String?
+  color        String   @default("#ec4899") // Theme color (pink/blue)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// ============ CONTACT MESSAGES ============
+
+model ContactMessage {
+  id         String   @id @default(cuid())
+  recipient  String   // "zekk" or "lia"
+  message    String
+  senderName String?
+  senderEmail String?
+  isRead     Boolean  @default(false)
+  createdAt  DateTime @default(now())
+}
+
+// ============ GALLERY ============
+
+model Gallery {
+  id        String   @id @default(cuid())
+  url       String
+  alt       String?
+  category  String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+}

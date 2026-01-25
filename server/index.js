@@ -1,0 +1,142 @@
+require('dotenv').config();
+
+const express = require('express');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const path = require('path');
+
+// Import routes
+const authRoutes = require('./routes/authRoutes');
+const memoryRoutes = require('./routes/memoryRoutes');
+const newsRoutes = require('./routes/newsRoutes');
+const journeyRoutes = require('./routes/journeyRoutes');
+const profileRoutes = require('./routes/profileRoutes');
+const contactRoutes = require('./routes/contactRoutes');
+const galleryRoutes = require('./routes/galleryRoutes');
+
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+// ============ MIDDLEWARE ============
+
+// CORS configuration with credentials
+app.use(cors({
+    origin: process.env.CORS_ORIGIN || 'http://localhost:8080',
+    credentials: true,
+    methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// Parse cookies (for JWT httpOnly cookies)
+app.use(cookieParser());
+
+// Parse JSON body
+app.use(express.json({ limit: '10mb' }));
+
+// Parse URL-encoded body
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// Request Logger
+app.use((req, res, next) => {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl}`);
+    next();
+});
+
+// Serve uploaded files statically
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// ============ ROUTES ============
+
+app.get('/api/test', (req, res) => res.send('API Root Working'));
+app.get('/api/news/ping', (req, res) => res.send('News Route Ping'));
+
+console.log("Mounting Auth Routes...");
+// Auth routes
+app.use('/api/auth', authRoutes);
+
+console.log("Mounting Memory Routes...");
+// Memory routes
+app.use('/api/memories', memoryRoutes);
+
+console.log("Mounting News Routes...");
+// News routes
+app.use('/api/news', newsRoutes);
+
+console.log("Mounting Journey Routes...");
+
+// Journey routes
+app.use('/api/journey', journeyRoutes);
+
+// Profile routes
+app.use('/api/profiles', profileRoutes);
+
+// Contact routes
+app.use('/api/contact', contactRoutes);
+
+// Gallery routes
+app.use('/api/gallery', galleryRoutes);
+
+// Root endpoint
+app.get('/', (req, res) => {
+    res.json({
+        message: 'Zekk & Lia Digital Garden API 💖',
+        version: '2.0.0',
+        endpoints: {
+            auth: '/api/auth',
+            memories: '/api/memories',
+            news: '/api/news',
+            journey: '/api/journey',
+            profiles: '/api/profiles',
+            contact: '/api/contact',
+            gallery: '/api/gallery'
+        }
+    });
+});
+
+// Health check
+app.get('/api/health', (req, res) => {
+    res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
+// ============ ERROR HANDLING ============
+
+// 404 handler
+app.use((req, res) => {
+    console.log(`[404] Route not found: ${req.method} ${req.url}`);
+    res.status(404).json({ error: 'Not found' });
+});
+
+// Global error handler
+app.use((err, req, res, next) => {
+    console.error('Server error:', err);
+
+    // Multer errors
+    if (err.code === 'LIMIT_FILE_SIZE') {
+        return res.status(400).json({ error: 'File too large. Maximum size is 5MB.' });
+    }
+    if (err.code === 'LIMIT_FILE_COUNT') {
+        return res.status(400).json({ error: 'Too many files. Maximum is 10 files.' });
+    }
+    if (err.message?.includes('Invalid file type')) {
+        return res.status(400).json({ error: err.message });
+    }
+
+    res.status(500).json({ error: 'Internal server error' });
+});
+
+// ============ START SERVER ============
+
+app.listen(PORT, () => {
+    console.log(`\n🚀 Server running on http://localhost:${PORT}`);
+    console.log(`📦 API: http://localhost:${PORT}/api`);
+    console.log(`📁 Uploads: http://localhost:${PORT}/uploads`);
+    console.log(`\nEndpoints:`);
+    console.log(`  • /api/auth      - Authentication`);
+    console.log(`  • /api/memories  - Memories CRUD`);
+    console.log(`  • /api/news      - News CRUD`);
+    console.log(`  • /api/journey   - Journey timeline`);
+    console.log(`  • /api/profiles  - Zekk & Lia profiles`);
+    console.log(`  • /api/contact   - Contact messages`);
+    console.log(`  • /api/gallery   - Image gallery`);
+    console.log(`\nEnvironment: ${process.env.NODE_ENV || 'development'}\n`);
+});
