@@ -5,6 +5,9 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+
 // Import routes
 const authRoutes = require('./routes/authRoutes');
 const memoryRoutes = require('./routes/memoryRoutes');
@@ -19,6 +22,11 @@ const PORT = process.env.PORT || 3001;
 
 // ============ MIDDLEWARE ============
 
+// Security Headers
+app.use(helmet({
+    crossOriginResourcePolicy: { policy: "cross-origin" }, // Allow cross-origin for static assets
+}));
+
 // CORS configuration with credentials
 app.use(cors({
     origin: process.env.CORS_ORIGIN || 'http://localhost:8080',
@@ -26,6 +34,24 @@ app.use(cors({
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+// Rate Limiting
+const loginLimiter = rateLimit({
+    windowMs: 60 * 60 * 1000, // 1 hour
+    max: 5, // Limit each IP to 5 login requests per windowMs
+    message: { error: 'Too many login attempts, please try again after an hour' },
+    standardHeaders: true,
+    legacyHeaders: false,
+});
+app.use('/api/auth/login', loginLimiter);
+
+const apiLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // Limit each IP to 100 requests per windowMs
+    standardHeaders: true,
+    legacyHeaders: false,
+});
+app.use('/api', apiLimiter);
 
 // Parse cookies (for JWT httpOnly cookies)
 app.use(cookieParser());
