@@ -1,6 +1,5 @@
 # Dependencies
 node_modules/
-package-lock.json
 
 # Environment variables
 .env
@@ -19,6 +18,7 @@ yarn-debug.log*
 yarn-error.log*
 logs/
 *.log
+access.log
 
 # IDEs
 .vscode/
@@ -33,3 +33,7 @@ Thumbs.db
 # Database
 server/prisma/dev.db
 server/prisma/dev.db-journal
+
+# Uploads
+server/uploads/*
+!server/uploads/.gitkeep
