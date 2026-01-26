@@ -7,6 +7,7 @@ const path = require('path');
 
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
+const fileLogger = require('./utils/logger'); // Import logger
 
 // Import routes
 const authRoutes = require('./routes/authRoutes');
@@ -26,6 +27,9 @@ const PORT = process.env.PORT || 3001;
 app.use(helmet({
     crossOriginResourcePolicy: { policy: "cross-origin" }, // Allow cross-origin for static assets
 }));
+
+// Access Logging
+app.use(fileLogger);
 
 // CORS configuration with credentials
 app.use(cors({
