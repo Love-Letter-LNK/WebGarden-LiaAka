@@ -14,8 +14,7 @@ const Admin = () => {
                         <div
                             className="bg-blue-50 p-3 rounded border border-blue-100 text-sm cursor-pointer hover:bg-blue-100 transition-colors"
                             onClick={() => playSound('click')}
-                            onMouseEnter={() => playSound('hover')}
-                        >
+                            onMouseEnter={() => playSound('hover')}>
                             📝 Manage Memories
                         </div>
                         <div
