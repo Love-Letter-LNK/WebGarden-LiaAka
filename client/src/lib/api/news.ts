@@ -1,4 +1,4 @@
-import { apiRequest } from '../api';
+import { apiRequest } from './core';
 export * from '@/types/news';
 import { NewsItem, CreateNewsDTO, UpdateNewsDTO } from '@/types/news';
 

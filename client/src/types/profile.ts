@@ -2,7 +2,7 @@ export interface Profile {
     id: string;
     slug: string;
     name: string;
-    displayName?: string; // Corrected from nickname to match usage in Profile.tsx if any
+    nickname?: string;
     bio?: string;
     birthDate?: string;
     hobbies?: string; // Stored as comma-separated string
@@ -17,7 +17,7 @@ export interface Profile {
 
 export interface UpdateProfileDTO {
     name?: string;
-    displayName?: string;
+    nickname?: string;
     bio?: string;
     birthDate?: string;
     hobbies?: string;

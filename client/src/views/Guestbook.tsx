@@ -116,6 +116,16 @@ export default function Guestbook() {
       title: "Terkirim ✦",
       description: "Pesanmu masuk antrian dan akan tampil setelah disetujui admin.",
     });
+
+    // Notify Admin via Email
+    fetch('/api/contact/guestbook-notify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: insertPayload.display_name || 'Anonymous',
+        message: insertPayload.message
+      })
+    }).catch(err => console.error("Failed to notify admin:", err));
     setMessage("");
     if (!isAuthed) setDisplayName("");
   };

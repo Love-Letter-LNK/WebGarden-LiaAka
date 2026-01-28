@@ -111,6 +111,58 @@ model Gallery {
   url       String
   alt       String?
   category  String?
+  year      String?  @default("2024") // Display year on catalog cards
   sortOrder Int      @default(0)
   createdAt DateTime @default(now())
+}
+
+// ============ TRAVEL LOG ============
+
+model TravelLog {
+  id          String        @id @default(cuid())
+  name        String
+  description String?
+  story       String?       // Longer story/memory about the trip
+  date        String?       // String to allow flexible formats like "May 2024" or ISO
+  isVisited   Boolean       @default(false)
+  lat         Float?
+  lng         Float?
+  images      TravelImage[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model TravelImage {
+  id          String    @id @default(cuid())
+  url         String
+  caption     String?
+  sortOrder   Int       @default(0)
+  travelLog   TravelLog @relation(fields: [travelLogId], references: [id], onDelete: Cascade)
+  travelLogId String
+  createdAt   DateTime  @default(now())
+}
+
+// ============ VISITORS ============
+
+model Visitor {
+  id         String   @id @default(cuid())
+  ip         String?
+  userAgent  String?
+  country    String?
+  city       String?
+  page       String   @default("/")
+  referer    String?
+  deviceType String?  // desktop, mobile, tablet
+  browser    String?
+  os         String?
+  isUnique   Boolean  @default(true) // First visit of the day from this IP
+  createdAt  DateTime @default(now())
+}
+
+model SiteStats {
+  id            String   @id @default("main")
+  totalVisitors Int      @default(0)
+  uniqueToday   Int      @default(0)
+  lastResetDate DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }

@@ -78,6 +78,7 @@ const uploadGallery = async (req, res) => {
                         url: getFileUrl(file.filename),
                         alt: alt || 'Gallery image',
                         category: category || null,
+                        year: req.body.year || new Date().getFullYear().toString(),
                         sortOrder: sortOrder + index
                     }
                 });
@@ -98,7 +99,7 @@ const uploadGallery = async (req, res) => {
 const updateGalleryItem = async (req, res) => {
     try {
         const { id } = req.params;
-        const { alt, category, sortOrder } = req.body;
+        const { alt, category, sortOrder, year } = req.body;
 
         const existing = await prisma.gallery.findUnique({ where: { id } });
         if (!existing) {
@@ -110,6 +111,7 @@ const updateGalleryItem = async (req, res) => {
             data: {
                 ...(alt !== undefined && { alt }),
                 ...(category !== undefined && { category }),
+                ...(year !== undefined && { year }),
                 ...(sortOrder !== undefined && { sortOrder })
             }
         });

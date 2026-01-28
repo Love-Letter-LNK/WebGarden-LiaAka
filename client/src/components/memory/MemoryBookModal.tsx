@@ -95,7 +95,7 @@ export const MemoryBookModal: React.FC<MemoryBookModalProps> = ({
                         animate={{ scale: 1, opacity: 1, rotateY: 0 }}
                         exit={{ scale: 0.8, opacity: 0, rotateY: -90 }}
                         transition={{ type: "spring", damping: 20, stiffness: 100 }}
-                        className={`relative w-full max-w-4xl max-h-[90vh] md:max-h-none md:aspect-[2/1] bg-[#fffbf0] rounded-xl md:rounded-r-3xl md:rounded-l-md shadow-2xl flex flex-col md:flex-row overflow-y-auto md:overflow-hidden border-4 md:border-8 md:border-r-24 ${theme === 'blue' ? 'border-blue-900' : 'border-pink-900'}`}
+                        className={`relative w-full max-w-6xl max-h-[90vh] md:max-h-none md:aspect-[2/1] bg-[#fffbf0] rounded-xl md:rounded-r-3xl md:rounded-l-md shadow-2xl flex flex-col md:flex-row overflow-y-auto md:overflow-hidden border-4 md:border-8 md:border-r-24 ${theme === 'blue' ? 'border-blue-900' : 'border-pink-900'}`}
                         style={{
                             perspective: "1000px",
                             transformStyle: "preserve-3d"
@@ -149,7 +149,7 @@ export const MemoryBookModal: React.FC<MemoryBookModalProps> = ({
                         </div>
 
                         {/* Page 2: Details (Bottom on Mobile, Right on Desktop) */}
-                        <div className={`w-full md:flex-1 p-5 md:p-10 flex flex-col ${bookColor}`}>
+                        <div className={`w-full md:flex-1 p-5 md:p-10 flex flex-col ${bookColor} overflow-hidden`}>
                             {/* Header: Date & Category */}
                             <div className="flex justify-between items-start mb-4 border-b border-gray-300 pb-2 border-dashed">
                                 <div className="flex flex-col">
@@ -182,7 +182,7 @@ export const MemoryBookModal: React.FC<MemoryBookModalProps> = ({
                             )}
 
                             {/* Story */}
-                            <div className="flex-1 prose prose-sm max-w-none text-gray-700 font-aesthetic leading-relaxed text-sm md:text-base">
+                            <div className="flex-1 prose prose-sm max-w-none text-gray-700 font-aesthetic leading-relaxed text-sm md:text-base overflow-y-auto pr-2 custom-scrollbar min-h-0">
                                 {memory.story || "No story written for this memory yet."}
                             </div>
 

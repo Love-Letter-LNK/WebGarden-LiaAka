@@ -20,7 +20,7 @@ export const useSound = () => {
         };
     }, []);
 
-    const playSound = useCallback((type: 'click' | 'hover' | 'success') => {
+    const playSound = useCallback((type: 'click' | 'hover' | 'success' | 'error') => {
         if (type === 'click') {
             // Use click WAV file
             if (clickAudioRef.current) {
@@ -60,6 +60,30 @@ export const useSound = () => {
 
             osc.start(now);
             osc.stop(now + 0.4);
+        }
+        else if (type === 'error') {
+            // Error/Failure sound (descending low tone)
+            const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
+            if (!AudioContext) return;
+
+            const ctx = new AudioContext();
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+
+            const now = ctx.currentTime;
+
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(150, now);
+            osc.frequency.linearRampToValueAtTime(100, now + 0.3);
+
+            gain.gain.setValueAtTime(0.1, now);
+            gain.gain.linearRampToValueAtTime(0, now + 0.3);
+
+            osc.start(now);
+            osc.stop(now + 0.3);
         }
     }, []);
 

@@ -1,4 +1,4 @@
-import { apiRequest } from '../api';
+import { apiRequest } from './core';
 export * from '@/types/journey';
 import { JourneyMilestone, CreateJourneyDTO, UpdateJourneyDTO } from '@/types/journey';
 

@@ -1,6 +1,6 @@
 import { Folder, Heart, Calendar, ArrowLeft, Loader2 } from "lucide-react";
 import { SparkleEffect } from "../components/garden/SparkleEffect";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useSound } from "../hooks/useSound";
 import { MainLayout } from "../components/garden/MainLayout";
@@ -11,6 +11,11 @@ const Category = () => {
     const { categoryId } = useParams<{ categoryId: string }>();
     // Default to "Random" if no category is provided or if it doesn't match known ones (though we filter by string now)
     const categoryName = categoryId ? categoryId.charAt(0).toUpperCase() + categoryId.slice(1).replace(/-/g, ' ') : "Random";
+
+    // Redirect 'letters' to the proper Letters view
+    if (categoryId === 'letters') {
+        return <Navigate to="/letters" replace />;
+    }
 
     const [photos, setPhotos] = useState<GalleryImage[]>([]);
     const [loading, setLoading] = useState(true);

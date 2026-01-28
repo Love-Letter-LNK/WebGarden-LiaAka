@@ -1,4 +1,4 @@
-import { apiRequest, apiUpload } from '../api';
+import { apiRequest, apiUpload } from './core';
 export * from '@/types/memory';
 import { Memory, MemoryDTO, MemoryImage, UpdateMemoryDTO } from '@/types/memory';
 

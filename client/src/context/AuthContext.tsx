@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useMemo, useState, useCallback } from "react";
-import { authApi, User, ApiError } from "@/api/client";
+import { authApi, User, ApiError } from "@/lib/api";
 
 interface AuthContextValue {
   user: User | null;
@@ -69,6 +69,17 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
 export const useAuth = () => {
   const ctx = useContext(AuthContext);
-  if (!ctx) throw new Error("useAuth must be used within <AuthProvider />");
+  if (!ctx) {
+    // Safety fallback to prevent crash while debugging
+    console.error("CRITICAL: useAuth called outside of AuthProvider! Returning safe fallback.");
+    return {
+      user: null,
+      isLoading: true, // Keep loading to prevent premature redirects
+      isAdmin: false,
+      login: async () => console.warn("Login called without provider"),
+      logout: async () => console.warn("Logout called without provider"),
+      refreshUser: async () => console.warn("refreshUser called without provider"),
+    };
+  }
   return ctx;
 };

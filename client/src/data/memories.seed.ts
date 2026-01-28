@@ -12,8 +12,8 @@ export const seedMemories: Memory[] = [
         story: "I remember waiting at the cafe, checking my watch every minute. When you walked in wearing that blue dress, time stopped. We talked for hours until the shop closed.",
         location: "Starbucks Central Park",
         images: [
-            { url: "/we.png", alt: "Us together" },
-            { url: "/love2.png", alt: "Heart decoration" }
+            { url: "/we.webp", alt: "Us together" },
+            { url: "/love2.webp", alt: "Heart decoration" }
         ],
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
@@ -29,8 +29,8 @@ export const seedMemories: Memory[] = [
         story: "We drove for 3 hours just to see the sea. You built a sandcastle that looked like a potato, but we loved it anyway. The sunset was magical.",
         location: "Kuta Beach",
         images: [
-            { url: "/LiaaZekk.jpeg", alt: "Beach sunset" },
-            { url: "/kucing.png", alt: "Cat we found" }
+            { url: "/LiaaZekk.webp", alt: "Beach sunset" },
+            { url: "/kucing.webp", alt: "Cat we found" }
         ],
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
@@ -46,8 +46,8 @@ export const seedMemories: Memory[] = [
         story: "Just walking around the city with no destination. We found that weird statue and took a thousand silly photos.",
         location: "Downtown",
         images: [
-            { url: "/zekk_pixel.png", alt: "Zekk silly face" },
-            { url: "/lia_pixel.png", alt: "Lia laughing" }
+            { url: "/zekk_pixel.webp", alt: "Zekk silly face" },
+            { url: "/lia_pixel.webp", alt: "Lia laughing" }
         ],
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()

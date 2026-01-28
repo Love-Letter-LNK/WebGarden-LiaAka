@@ -19,7 +19,7 @@ const AboutZekk = () => {
                     {/* Profile Card */}
                     <div className="bg-white border-4 border-blue-200 rounded-xl p-6 mb-6 text-center shadow-lg">
                         <div className="w-32 h-36 mx-auto bg-blue-100 border-3 border-blue-400 rounded-lg overflow-hidden shadow-lg mb-4">
-                            <img src="/zekk_pixel.png" className="w-full h-[180%] object-cover object-top" alt="Zekk" />
+                            <img src="/zekk_pixel.webp" className="w-full h-[180%] object-cover object-top" alt="Zekk" />
                         </div>
                         <h2 className="text-xl font-bold text-blue-600 mb-1">ZEKK</h2>
                         <p className="text-[10px] text-gray-500 mb-3">a.k.a Zakaria</p>
@@ -109,10 +109,10 @@ const AboutZekk = () => {
                         </h3>
                         <div className="grid grid-cols-3 gap-2">
                             <div className="aspect-square bg-blue-50 rounded-lg overflow-hidden border border-blue-100 cursor-pointer hover:scale-105 transition-transform" onClick={() => playSound('click')}>
-                                <img src="/zekk_pixel.png" className="w-full h-full object-cover" alt="Zekk 1" />
+                                <img src="/zekk_pixel.webp" className="w-full h-full object-cover" alt="Zekk 1" />
                             </div>
                             <div className="aspect-square bg-blue-50 rounded-lg overflow-hidden border border-blue-100 cursor-pointer hover:scale-105 transition-transform" onClick={() => playSound('click')}>
-                                <img src="/we.png" className="w-full h-full object-cover" alt="Zekk 2" />
+                                <img src="/we.webp" className="w-full h-full object-cover" alt="Zekk 2" />
                             </div>
                             <div className="aspect-square bg-blue-50 rounded-lg overflow-hidden border border-blue-100 flex items-center justify-center cursor-pointer hover:bg-blue-100 transition-colors" onClick={() => playSound('click')}>
                                 <span className="text-[10px] text-blue-400 font-bold">+ More</span>

@@ -6,12 +6,16 @@ import { useEffect, useState } from "react";
 import { NewsItem } from "@/types/news";
 import { newsApi } from "@/lib/api/news";
 import { format } from "date-fns";
+import { NewsModal } from "@/components/news/NewsModal";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 const News = () => {
+    usePageTitle("News");
     const playSound = useSound();
     const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null);
 
     useEffect(() => {
         const fetchNews = async () => {
@@ -31,6 +35,11 @@ const News = () => {
 
     return (
         <MainLayout>
+            {/* News Modal */}
+            {selectedNews && (
+                <NewsModal news={selectedNews} onClose={() => setSelectedNews(null)} />
+            )}
+
             <div className="flex-1 p-4 bg-gradient-to-b from-pink-50 to-blue-50 h-full rounded-lg overflow-y-auto">
                 <div className="max-w-4xl mx-auto pb-20">
                     {/* News Header Banner */}
@@ -60,7 +69,10 @@ const News = () => {
                                     key={news.id}
                                     className="bg-white border-2 border-pink-200 rounded-lg p-3 hover:border-pink-400 hover:shadow-md transition-all cursor-pointer group"
                                     onMouseEnter={() => playSound('hover')}
-                                    onClick={() => playSound('click')}
+                                    onClick={() => {
+                                        playSound('click');
+                                        setSelectedNews(news);
+                                    }}
                                 >
                                     <div className="flex items-center gap-3">
                                         <div className="text-2xl">{news.emoji || "📰"}</div>

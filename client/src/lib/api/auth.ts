@@ -1,4 +1,4 @@
-import { apiRequest } from '../api';
+import { apiRequest } from './core';
 
 export interface User {
     id: string;

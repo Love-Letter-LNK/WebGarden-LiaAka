@@ -1,5 +1,6 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
+const { sendNotification } = require('../services/emailService');
 
 // ============ PUBLIC ENDPOINTS ============
 
@@ -27,6 +28,11 @@ const submitMessage = async (req, res) => {
                 senderEmail: senderEmail || null
             }
         });
+
+        // Send Email Notification
+        const notificationSubject = `New Contact Message for ${recipient.toUpperCase()}`;
+        const notificationText = `From: ${senderName || 'Anonymous'} (${senderEmail || 'No Email'})\n\nMessage:\n${message}`;
+        sendNotification(notificationSubject, notificationText, null, recipient).catch(err => console.error("Email fail:", err));
 
         res.status(201).json({ message: 'Message sent successfully!', id: contact.id });
     } catch (error) {
@@ -142,11 +148,33 @@ const getStats = async (req, res) => {
     }
 };
 
+/**
+ * POST /api/contact/guestbook-notify
+ * Send email notification for new guestbook entry
+ */
+const notifyGuestbook = async (req, res) => {
+    try {
+        const { name, message } = req.body;
+        if (!name || !message) return res.status(400).json({ error: "Missing fields" });
+
+        const subject = `New Guestbook Entry from ${name}`;
+        const text = `Name: ${name}\n\nMessage:\n${message}`;
+
+        sendNotification(subject, text).catch(err => console.error("Guestbook email fail:", err));
+
+        res.json({ success: true });
+    } catch (error) {
+        console.error("Notify guestbook error:", error);
+        res.status(500).json({ error: "Notification failed" });
+    }
+};
+
 module.exports = {
     submitMessage,
     listMessages,
     getMessage,
     markAsRead,
     deleteMessage,
-    getStats
+    getStats,
+    notifyGuestbook
 };

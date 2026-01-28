@@ -2,9 +2,11 @@ const express = require('express');
 const router = express.Router();
 const contactController = require('../controllers/contactController');
 const { requireAuth, requireAdmin } = require('../middleware/authMiddleware');
+const { submitMessageValidation, guestbookValidation } = require('../middleware/validationMiddleware');
 
 // ============ PUBLIC ROUTES ============
-router.post('/', contactController.submitMessage);
+router.post('/', submitMessageValidation, contactController.submitMessage);
+router.post('/guestbook-notify', guestbookValidation, contactController.notifyGuestbook);
 
 // ============ ADMIN ROUTES ============
 router.get('/', requireAuth, requireAdmin, contactController.listMessages);

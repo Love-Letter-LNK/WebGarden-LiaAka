@@ -1,4 +1,4 @@
-import { apiRequest } from '../api';
+import { apiRequest } from './core';
 export * from '@/types/profile';
 import { Profile, UpdateProfileDTO } from '@/types/profile';
 

@@ -48,8 +48,8 @@ const Profile = () => {
     }
 
     // Fallback if API fails or returns null (should be seeded though)
-    const zekkProfile = zekk || { name: 'Zekk', displayName: 'ZEKK', bio: 'Loading...', hobbies: '', funFacts: [], birthDate: '' };
-    const liaProfile = lia || { name: 'Lia', displayName: 'LIA', bio: 'Loading...', hobbies: '', funFacts: [], birthDate: '' };
+    const zekkProfile = zekk || { name: 'Zekk', nickname: 'ZEKK', bio: 'Loading...', hobbies: '', funFacts: [], birthDate: '' };
+    const liaProfile = lia || { name: 'Lia', nickname: 'LIA', bio: 'Loading...', hobbies: '', funFacts: [], birthDate: '' };
 
     return (
         <MainLayout>
@@ -63,14 +63,14 @@ const Profile = () => {
                             <div className="flex flex-col items-center">
                                 <div className="w-24 h-28 bg-blue-100 border-3 border-blue-400 rounded-lg overflow-hidden shadow-lg relative">
                                     <img
-                                        src={zekk?.avatar || "/zekk_pixel.png"}
+                                        src={zekk?.avatar || "/zekk_pixel.webp"}
                                         className="w-full h-full object-cover"
                                         alt="Zekk"
                                         // Fallback to placeholder if image fails
                                         onError={(e) => { e.currentTarget.src = "https://placehold.co/100x120/blue/white?text=Zekk"; }}
                                     />
                                 </div>
-                                <span className="text-xs font-bold text-blue-500 mt-2">{zekkProfile.displayName || zekkProfile.name.toUpperCase()}</span>
+                                <span className="text-xs font-bold text-blue-500 mt-2">{zekkProfile.nickname || zekkProfile.name.toUpperCase()}</span>
                                 <p className="text-[8px] text-gray-400">{zekkProfile.name}</p>
                             </div>
                             <div className="flex items-center">
@@ -79,13 +79,13 @@ const Profile = () => {
                             <div className="flex flex-col items-center">
                                 <div className="w-24 h-28 bg-pink-100 border-3 border-pink-400 rounded-lg overflow-hidden shadow-lg relative">
                                     <img
-                                        src={lia?.avatar || "/lia_pixel.png"}
+                                        src={lia?.avatar || "/lia_pixel.webp"}
                                         className="w-full h-full object-cover"
                                         alt="Lia"
                                         onError={(e) => { e.currentTarget.src = "https://placehold.co/100x120/pink/white?text=Lia"; }}
                                     />
                                 </div>
-                                <span className="text-xs font-bold text-pink-500 mt-2">{liaProfile.displayName || liaProfile.name.toUpperCase()}</span>
+                                <span className="text-xs font-bold text-pink-500 mt-2">{liaProfile.nickname || liaProfile.name.toUpperCase()}</span>
                                 <p className="text-[8px] text-gray-400">{liaProfile.name}</p>
                             </div>
                         </div>

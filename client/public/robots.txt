@@ -12,3 +12,8 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /__admin
+Disallow: /api
+
+Sitemap: https://liaazekk.com/sitemap.xml

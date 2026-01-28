@@ -2,6 +2,7 @@ export type MemoryCategory = 'First Date' | 'Anniversary' | 'Travel' | 'Random' 
 export type MemoryMood = 'sweet' | 'silly' | 'serious' | 'romantic' | 'adventure' | 'chill';
 
 export interface MemoryImage {
+    id?: string;
     url: string;
     alt?: string;
     caption?: string;

@@ -1,38 +1,103 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Zakaria & Lia’s Digital Garden</title>
-    <meta
-      name="description"
-      content="A romantic retro-pixel digital garden for Zakaria Mujur Prasetyo & Lia Nur Khasanah—memories, milestones, and letters to the future."
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="icon" type="image/png" href="/favicon.png" />
+  <title>Zakaria & Lia’s Digital Garden</title>
+  <meta name="description"
+    content="A romantic retro-pixel digital garden for Zakaria Mujur Prasetyo & Lia Nur Khasanah—memories, milestones, and letters to the future." />
 
-    <!-- Fonts: pixel display + clean body -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/we.webp" />
 
-    <meta property="og:title" content="Zakaria & Lia’s Digital Garden" />
-    <meta
-      property="og:description"
-      content="A romantic retro-pixel digital garden—memories, milestones, and letters to the future."
-    />
-    <meta property="og:type" content="website" />
+  <!-- Mobile App & Theme -->
+  <meta name="theme-color" content="#ffe6f2" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Lia & Zekk" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-  </head>
+  <!-- Microsoft Tiles -->
+  <meta name="msapplication-TileColor" content="#ffe6f2" />
+  <meta name="msapplication-TileImage" content="/we.webp" />
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <!-- Fonts: pixel display + clean body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://liaazekk.com/" />
+  <meta property="og:title" content="Zakaria & Lia’s Digital Garden 💕" />
+  <meta property="og:description"
+    content="A romantic retro-pixel digital garden for Zakaria Mujur Prasetyo & Lia Nur Khasanah. Explore our memories, milestones, and love story!" />
+  <meta property="og:image" content="https://liaazekk.com/we.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Zakaria & Lia’s Digital Garden",
+      "url": "https://liaazekk.com/",
+      "author": {
+        "@type": "Person",
+        "name": "Zakaria & Lia"
+      },
+      "description": "A romantic retro-pixel digital garden capturing memories and milestones."
+    }
+  </script>
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://liaazekk.com/" />
+  <meta property="twitter:title" content="Zakaria & Lia’s Digital Garden 💕" />
+  <meta property="twitter:description"
+    content="A romantic retro-pixel digital garden for Zakaria Mujur Prasetyo & Lia Nur Khasanah. Explore our memories, milestones, and love story!" />
+  <meta property="twitter:image" content="https://liaazekk.com/we.webp" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <!-- EMERGENCY DEBUGGER: Prints errors to screen -->
+  <script>
+    window.onerror = function (message, source, lineno, colno, error) {
+      const errorDiv = document.createElement('div');
+      errorDiv.style.position = 'fixed';
+      errorDiv.style.top = '0';
+      errorDiv.style.left = '0';
+      errorDiv.style.width = '100%';
+      errorDiv.style.backgroundColor = 'rgba(255, 0, 0, 0.9)';
+      errorDiv.style.color = 'white';
+      errorDiv.style.padding = '20px';
+      errorDiv.style.zIndex = '999999';
+      errorDiv.style.fontFamily = 'monospace';
+      errorDiv.style.whiteSpace = 'pre-wrap';
+      errorDiv.innerText = '🚨 RUNTIME ERROR:\n' + message + '\n\nSource: ' + source + ':' + lineno + ':' + colno + '\n\n' + (error?.stack || '');
+      document.body.appendChild(errorDiv);
+    };
+    window.onunhandledrejection = function (event) {
+      const errorDiv = document.createElement('div');
+      errorDiv.style.position = 'fixed';
+      errorDiv.style.top = '50%';
+      errorDiv.style.left = '0';
+      errorDiv.style.width = '100%';
+      errorDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+      errorDiv.style.color = '#ff5555';
+      errorDiv.style.padding = '20px';
+      errorDiv.style.zIndex = '999999';
+      errorDiv.style.fontFamily = 'monospace';
+      errorDiv.innerText = '🚨 UNHANDLED PROMISE:\n' + (event.reason?.message || event.reason);
+      document.body.appendChild(errorDiv);
+    };
+  </script>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>
-

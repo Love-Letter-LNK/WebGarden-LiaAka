@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Heart, LogOut, Home, Image, Newspaper, Map, Users, Mail, Camera, Settings, Star } from "lucide-react";
+import { Heart, LogOut, Home, Image, Newspaper, Map, Users, Mail, Camera, Settings, Star, Globe, Eye } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { SparkleEffect } from "@/components/garden/SparkleEffect";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -15,10 +15,12 @@ const menuItems = [
     { path: '/__admin', label: 'DASHBOARD', icon: Home },
     { path: '/__admin/memories', label: 'MEMORIES', icon: Image },
     { path: '/__admin/news', label: 'NEWS LOG', icon: Newspaper },
-    { path: '/__admin/journey', label: 'JOURNEY', icon: Map },
+    { path: '/__admin/journey', label: 'MILESTONES', icon: Map },
+    { path: '/__admin/travel', label: 'TRAVEL LOG', icon: Globe },
     { path: '/__admin/profiles', label: 'PROFILES', icon: Users },
     { path: '/__admin/contact', label: 'MESSAGES', icon: Mail },
     { path: '/__admin/gallery', label: 'GALLERY', icon: Camera },
+    { path: '/__admin/visitors', label: 'VISITORS', icon: Eye },
 ];
 
 export const AdminLayout: React.FC<AdminLayoutProps> = ({ children, title }) => {

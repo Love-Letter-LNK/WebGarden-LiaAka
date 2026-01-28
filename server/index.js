@@ -1,4 +1,5 @@
 require('dotenv').config();
+console.log('Starting server initialization...');
 
 const express = require('express');
 const cors = require('cors');
@@ -17,6 +18,8 @@ const journeyRoutes = require('./routes/journeyRoutes');
 const profileRoutes = require('./routes/profileRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const galleryRoutes = require('./routes/galleryRoutes');
+const travelRoutes = require('./routes/travelRoutes');
+const visitorRoutes = require('./routes/visitorRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -106,6 +109,12 @@ app.use('/api/contact', contactRoutes);
 // Gallery routes
 app.use('/api/gallery', galleryRoutes);
 
+// Travel routes
+app.use('/api/travel', travelRoutes);
+
+// Visitor routes
+app.use('/api/visitors', visitorRoutes);
+
 // Root endpoint
 app.get('/', (req, res) => {
     res.json({
@@ -118,7 +127,9 @@ app.get('/', (req, res) => {
             journey: '/api/journey',
             profiles: '/api/profiles',
             contact: '/api/contact',
-            gallery: '/api/gallery'
+            gallery: '/api/gallery',
+            travel: '/api/travel',
+            visitors: '/api/visitors'
         }
     });
 });
@@ -156,7 +167,8 @@ app.use((err, req, res, next) => {
 
 // ============ START SERVER ============
 
-app.listen(PORT, () => {
+
+const server = app.listen(PORT, () => {
     console.log(`\n🚀 Server running on http://localhost:${PORT}`);
     console.log(`📦 API: http://localhost:${PORT}/api`);
     console.log(`📁 Uploads: http://localhost:${PORT}/uploads`);
@@ -169,4 +181,22 @@ app.listen(PORT, () => {
     console.log(`  • /api/contact   - Contact messages`);
     console.log(`  • /api/gallery   - Image gallery`);
     console.log(`\nEnvironment: ${process.env.NODE_ENV || 'development'}\n`);
+});
+
+// Handle server startup errors (e.g. EADDRINUSE)
+server.on('error', (error) => {
+    console.error('SERVER STARTUP ERROR:', error);
+    if (error.code === 'EADDRINUSE') {
+        console.error(`Port ${PORT} is already in use. Please stop other processes or change the PORT in .env`);
+    }
+});
+
+// Handle unhandled promise rejections
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+});
+
+// Handle uncaught exceptions
+process.on('uncaughtException', (error) => {
+    console.error('Uncaught Exception:', error);
 });

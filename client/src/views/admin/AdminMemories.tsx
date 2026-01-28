@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { AdminLayout } from "@/components/admin/AdminLayout";
-import { memoriesApi, Memory, CreateMemoryDTO, UpdateMemoryDTO } from "@/lib/api";
+import { memoriesApi, Memory, MemoryDTO, UpdateMemoryDTO } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -27,9 +27,9 @@ const AdminMemories: React.FC = () => {
     const [formError, setFormError] = useState<string | null>(null);
     const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
-    const [formData, setFormData] = useState<CreateMemoryDTO>({
+    const [formData, setFormData] = useState<MemoryDTO>({
         title: "", date: new Date().toISOString().split("T")[0],
-        category: "Random", tags: [], mood: "sweet", quote: "", story: "", location: ""
+        category: "Random", tags: [], mood: "sweet", quote: "", story: "", location: "", images: []
     });
 
     const fetchMemories = async () => {
@@ -53,7 +53,7 @@ const AdminMemories: React.FC = () => {
     const openCreateForm = () => {
         playSound('click');
         setEditingMemory(null);
-        setFormData({ title: "", date: new Date().toISOString().split("T")[0], category: "Random", tags: [], mood: "sweet", quote: "", story: "", location: "" });
+        setFormData({ title: "", date: new Date().toISOString().split("T")[0], category: "Random", tags: [], mood: "sweet", quote: "", story: "", location: "", images: [] });
         setSelectedFiles([]);
         setFormError(null);
         setIsFormOpen(true);
@@ -64,7 +64,7 @@ const AdminMemories: React.FC = () => {
         setEditingMemory(memory);
         setFormData({
             title: memory.title, date: memory.date.split("T")[0], category: memory.category,
-            tags: memory.tags, mood: memory.mood, quote: memory.quote || "", story: memory.story || "", location: memory.location || ""
+            tags: memory.tags, mood: memory.mood, quote: memory.quote || "", story: memory.story || "", location: memory.location || "", images: memory.images || []
         });
         setSelectedFiles([]);
         setFormError(null);

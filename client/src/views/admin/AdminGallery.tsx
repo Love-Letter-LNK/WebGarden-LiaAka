@@ -116,7 +116,11 @@ const AdminGallery: React.FC = () => {
     const openEdit = (image: GalleryImage) => {
         playSound('click');
         setEditingImage(image);
-        setEditData({ category: image.category, alt: image.alt });
+        setEditData({
+            category: image.category,
+            alt: image.alt,
+            year: image.year || "2024"
+        });
         setIsEditOpen(true);
     };
 
@@ -321,25 +325,36 @@ const AdminGallery: React.FC = () => {
                                 </div>
                             </div>
 
-                            <div className="space-y-2">
-                                <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Category</label>
-                                <Select
-                                    value={editData.category || "Random"}
-                                    onValueChange={(val) => setEditData({ ...editData, category: val })}
-                                >
-                                    <SelectTrigger className="border-2 border-pink-100 rounded-lg">
-                                        <SelectValue />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        {CATEGORIES.map(cat => (
-                                            <SelectItem key={cat} value={cat}>{cat}</SelectItem>
-                                        ))}
-                                    </SelectContent>
-                                </Select>
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="space-y-2">
+                                    <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Category</label>
+                                    <Select
+                                        value={editData.category || "Random"}
+                                        onValueChange={(val) => setEditData({ ...editData, category: val })}
+                                    >
+                                        <SelectTrigger className="border-2 border-pink-100 rounded-lg">
+                                            <SelectValue />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            {CATEGORIES.map(cat => (
+                                                <SelectItem key={cat} value={cat}>{cat}</SelectItem>
+                                            ))}
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                                <div className="space-y-2">
+                                    <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Year</label>
+                                    <Input
+                                        value={editData.year || ""}
+                                        onChange={(e) => setEditData({ ...editData, year: e.target.value })}
+                                        placeholder="e.g. 2024"
+                                        className="border-2 border-pink-100 rounded-lg focus-visible:ring-pink-200"
+                                    />
+                                </div>
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Caption / Alt Text</label>
+                                <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Caption</label>
                                 <Input
                                     value={editData.alt || ""}
                                     onChange={(e) => setEditData({ ...editData, alt: e.target.value })}

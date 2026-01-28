@@ -1,4 +1,4 @@
-import { apiRequest, apiUpload } from '../api';
+import { apiRequest, apiUpload } from './core';
 
 export interface GalleryImage {
     id: string;

@@ -28,7 +28,11 @@ import { FloatingDecorations } from "@/components/garden/FloatingDecorations";
 import { QuickNav } from "@/components/garden/QuickNav";
 import { MusicPlayer } from "@/components/garden/MusicPlayer";
 import { MemoryProvider } from "@/context/MemoryContext";
+import { MusicProvider } from "@/context/MusicContext";
 import Memories from "@/views/Memories";
+import Playlist from "@/views/Playlist";
+import Travel from "@/views/Travel";
+import Letters from "@/views/Letters";
 
 // Hidden Admin Views (not in public navigation - access via /__admin/login)
 import AdminLogin from "@/views/admin/AdminLogin";
@@ -39,6 +43,9 @@ import AdminJourney from "@/views/admin/AdminJourney";
 import AdminProfiles from "@/views/admin/AdminProfiles";
 import AdminContact from "@/views/admin/AdminContact";
 import AdminGallery from "@/views/admin/AdminGallery";
+import AdminTravel from "@/views/admin/AdminTravel";
+import AdminVisitors from "@/views/admin/AdminVisitors";
+import AdminLetters from "@/views/admin/AdminLetters";
 import { RequireAdmin } from "@/components/admin/RequireAdmin";
 
 const queryClient = new QueryClient();
@@ -161,6 +168,30 @@ const AnimatedRoutes = () => {
             </RouteTransition>
           }
         />
+        <Route
+          path="/travel"
+          element={
+            <RouteTransition>
+              <Travel />
+            </RouteTransition>
+          }
+        />
+        <Route
+          path="/playlist"
+          element={
+            <RouteTransition>
+              <Playlist />
+            </RouteTransition>
+          }
+        />
+        <Route
+          path="/letters"
+          element={
+            <RouteTransition>
+              <Letters />
+            </RouteTransition>
+          }
+        />
 
         {/* ============ HIDDEN ADMIN ROUTES ============ */}
         {/* These routes are not in public navigation, accessed via /__admin/login */}
@@ -221,6 +252,30 @@ const AnimatedRoutes = () => {
             </RequireAdmin>
           }
         />
+        <Route
+          path="/__admin/letters"
+          element={
+            <RequireAdmin>
+              <AdminLetters />
+            </RequireAdmin>
+          }
+        />
+        <Route
+          path="/__admin/travel"
+          element={
+            <RequireAdmin>
+              <AdminTravel />
+            </RequireAdmin>
+          }
+        />
+        <Route
+          path="/__admin/visitors"
+          element={
+            <RequireAdmin>
+              <AdminVisitors />
+            </RequireAdmin>
+          }
+        />
 
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route
@@ -266,30 +321,32 @@ const App = () => {
       <ThemeProvider>
         <AuthProvider>
           <MemoryProvider>
-            <SfxProvider>
-              <TooltipProvider>
-                <Toaster />
-                <Sonner />
-                <BrowserRouter>
-                  {/* Floating kawaii decorations */}
-                  <FloatingDecorations />
+            <MusicProvider>
+              <SfxProvider>
+                <TooltipProvider>
+                  <Toaster />
+                  <Sonner />
+                  <BrowserRouter>
+                    {/* Floating kawaii decorations */}
+                    <FloatingDecorations />
 
-                  {/* Quick Navigation - Ctrl+K to open */}
-                  <QuickNav />
+                    {/* Quick Navigation - Ctrl+K to open */}
+                    <QuickNav />
 
-                  {/* Persistent Music Player */}
-                  <MusicPlayer />
+                    {/* Persistent Music Player */}
+                    <MusicPlayer />
 
-                  {/* Keep header outside of RouteTransition transforms so `position: sticky` works reliably */}
-                  {/* <SiteHeader /> */}
+                    {/* Keep header outside of RouteTransition transforms so `position: sticky` works reliably */}
+                    {/* <SiteHeader /> */}
 
-                  {/* Offset content so it doesn't hide behind the sticky header */}
-                  <div style={{ paddingTop: "var(--site-header-h, 0px)" }}>
-                    <AnimatedRoutes />
-                  </div>
-                </BrowserRouter>
-              </TooltipProvider>
-            </SfxProvider>
+                    {/* Offset content so it doesn't hide behind the sticky header */}
+                    <div style={{ paddingTop: "var(--site-header-h, 0px)" }}>
+                      <AnimatedRoutes />
+                    </div>
+                  </BrowserRouter>
+                </TooltipProvider>
+              </SfxProvider>
+            </MusicProvider>
           </MemoryProvider>
         </AuthProvider>
       </ThemeProvider>

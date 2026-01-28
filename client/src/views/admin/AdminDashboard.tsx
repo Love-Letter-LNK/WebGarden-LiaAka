@@ -11,6 +11,7 @@ interface Stats {
     memories: number;
     news: number;
     journey: number;
+    letters: number;
     messages: { total: number; unread: number };
 }
 
@@ -27,10 +28,12 @@ const AdminDashboard: React.FC = () => {
                     journeyApi.list(),
                     contactApi.stats()
                 ]);
+                const letterCount = memories.filter((m: any) => m.category === 'letters').length;
                 setStats({
                     memories: memories.length,
                     news: news.length,
                     journey: journey.length,
+                    letters: letterCount,
                     messages: { total: messageStats.total, unread: messageStats.unread }
                 });
             } catch (error) {
@@ -85,6 +88,14 @@ const AdminDashboard: React.FC = () => {
             badge: stats?.messages.unread
         },
         {
+            title: 'Letters',
+            icon: Mail,
+            color: 'from-amber-400 to-yellow-500',
+            link: '/__admin/letters',
+            count: stats?.letters ?? '-',
+            desc: 'Private letters'
+        },
+        {
             title: 'Gallery',
             icon: Camera,
             color: 'from-red-400 to-pink-400',
@@ -123,7 +134,7 @@ const AdminDashboard: React.FC = () => {
                             className="bg-white border-2 border-pink-100 rounded-xl p-4 hover:border-pink-300 hover:shadow-md transition-all group relative"
                         >
                             {/* Badge */}
-                            {card.badge && card.badge > 0 && (
+                            {(card.badge || 0) > 0 && (
                                 <span className="absolute top-2 right-2 bg-red-500 text-white text-[10px] px-2 py-0.5 rounded-full animate-pulse">
                                     {card.badge} new
                                 </span>
@@ -169,6 +180,12 @@ const AdminDashboard: React.FC = () => {
                         className="px-4 py-2 bg-purple-100 text-purple-600 rounded-lg text-xs font-bold text-center hover:bg-purple-200 transition-colors"
                     >
                         + Add Milestone
+                    </Link>
+                    <Link
+                        to="/__admin/letters"
+                        className="px-4 py-2 bg-amber-100 text-amber-600 rounded-lg text-xs font-bold text-center hover:bg-amber-200 transition-colors"
+                    >
+                        + Write Letter
                     </Link>
                     <Link
                         to="/__admin/gallery"

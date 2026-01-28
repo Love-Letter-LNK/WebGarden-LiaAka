@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useMemories } from "@/hooks/useMemories";
 import { MemoryGrid } from "@/components/memory/MemoryGrid";
 import { MemoryBookModal } from "@/components/memory/MemoryBookModal";
@@ -16,8 +17,10 @@ import { useAuth } from "@/hooks/useAuth";
 const Memories = () => {
     const { memories, loading, error, actions } = useMemories();
     const { isAdmin } = useAuth();
+    const [searchParams] = useSearchParams();
+    const initialCategory = searchParams.get("category") || "all";
     const [search, setSearch] = useState("");
-    const [categoryFilter, setCategoryFilter] = useState<string>("all");
+    const [categoryFilter, setCategoryFilter] = useState<string>(initialCategory);
     const [moodFilter, setMoodFilter] = useState<string>("all");
 
     // UI States
@@ -115,7 +118,6 @@ const Memories = () => {
                                         <SelectItem value="First Date">First Date</SelectItem>
                                         <SelectItem value="Anniversary">Anniversary</SelectItem>
                                         <SelectItem value="Travel">Travel</SelectItem>
-                                        <SelectItem value="Letters">Letters</SelectItem>
                                         <SelectItem value="Random">Random</SelectItem>
                                     </SelectContent>
                                 </Select>
@@ -152,7 +154,7 @@ const Memories = () => {
                 {/* Content Grid */}
                 <main className="max-w-7xl mx-auto px-1 md:px-4 min-h-[200px]">
                     <MemoryGrid
-                        memories={memories}
+                        memories={memories.filter(m => m.category?.toLowerCase() !== 'letters')}
                         loading={loading}
                         error={error}
                         onMemoryClick={setSelectedMemory}

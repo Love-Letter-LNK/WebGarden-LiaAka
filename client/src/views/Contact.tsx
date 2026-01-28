@@ -38,10 +38,10 @@ const Contact = () => {
         setIsSending(true);
 
         try {
-            await contactApi.submitMessage({
-                to: recipient,
-                from: senderName,
-                content: message
+            await contactApi.submit({
+                recipient: recipient,
+                senderName: senderName,
+                message: message
             });
 
             playSound('success');

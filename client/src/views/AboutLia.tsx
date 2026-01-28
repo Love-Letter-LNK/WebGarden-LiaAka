@@ -19,7 +19,7 @@ const AboutLia = () => {
                     {/* Profile Card */}
                     <div className="bg-white border-4 border-pink-200 rounded-xl p-6 mb-6 text-center shadow-lg">
                         <div className="w-32 h-36 mx-auto bg-pink-100 border-3 border-pink-400 rounded-lg overflow-hidden shadow-lg mb-4">
-                            <img src="/lia_pixel.png" className="w-full h-[180%] object-cover object-top" alt="Lia" />
+                            <img src="/lia_pixel.webp" className="w-full h-[180%] object-cover object-top" alt="Lia" />
                         </div>
                         <h2 className="text-xl font-bold text-pink-600 mb-1">LIA</h2>
                         <p className="text-[10px] text-gray-500 mb-3">Si Cerewet yang Manis</p>
@@ -109,10 +109,10 @@ const AboutLia = () => {
                         </h3>
                         <div className="grid grid-cols-3 gap-2">
                             <div className="aspect-square bg-pink-50 rounded-lg overflow-hidden border border-pink-100 cursor-pointer hover:scale-105 transition-transform" onClick={() => playSound('click')}>
-                                <img src="/lia_pixel.png" className="w-full h-full object-cover" alt="Lia 1" />
+                                <img src="/lia_pixel.webp" className="w-full h-full object-cover" alt="Lia 1" />
                             </div>
                             <div className="aspect-square bg-pink-50 rounded-lg overflow-hidden border border-pink-100 cursor-pointer hover:scale-105 transition-transform" onClick={() => playSound('click')}>
-                                <img src="/we.png" className="w-full h-full object-cover" alt="Lia 2" />
+                                <img src="/we.webp" className="w-full h-full object-cover" alt="Lia 2" />
                             </div>
                             <div className="aspect-square bg-pink-50 rounded-lg overflow-hidden border border-pink-100 flex items-center justify-center cursor-pointer hover:bg-pink-100 transition-colors" onClick={() => playSound('click')}>
                                 <span className="text-[10px] text-pink-400 font-bold">+ More</span>

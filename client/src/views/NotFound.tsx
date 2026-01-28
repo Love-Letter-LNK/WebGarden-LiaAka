@@ -58,7 +58,7 @@ const NotFound = () => {
         <div className="absolute left-4 md:left-12 lg:left-20 top-1/2 -translate-y-1/2 z-10 hidden md:block">
           <div className="relative animate-float" style={{ animationDuration: '3s' }}>
             <img
-              src="/zekk_pixel.png"
+              src="/zekk_pixel.webp"
               alt="Zekk"
               className="w-32 h-40 md:w-40 md:h-52 lg:w-48 lg:h-60 object-contain drop-shadow-2xl opacity-50 grayscale"
             />
@@ -70,7 +70,7 @@ const NotFound = () => {
         <div className="absolute right-4 md:right-12 lg:right-20 top-1/2 -translate-y-1/2 z-10 hidden md:block">
           <div className="relative animate-float" style={{ animationDuration: '3.5s' }}>
             <img
-              src="/lia_pixel.png"
+              src="/lia_pixel.webp"
               alt="Lia"
               className="w-32 h-40 md:w-40 md:h-52 lg:w-48 lg:h-60 object-contain drop-shadow-2xl opacity-50 grayscale"
             />
