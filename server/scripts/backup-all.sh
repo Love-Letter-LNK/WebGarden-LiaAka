@@ -17,8 +17,8 @@ echo ""
 
 # 1. Backup Database
 echo "📦 Backing up database..."
-if [ -f "$APP_DIR/server/prisma/prod.db" ]; then
-    cp $APP_DIR/server/prisma/prod.db $BACKUP_DIR/db_$DATE.db
+if [ -f "$APP_DIR/server/prisma/dev.db" ]; then
+    cp $APP_DIR/server/prisma/dev.db $BACKUP_DIR/db_$DATE.db
     echo "   ✅ SQLite database backed up"
 else
     echo "   ⚠️ SQLite not found, skipping..."
