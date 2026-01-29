@@ -33,16 +33,22 @@ const AdminVisitors = () => {
         fetchData();
     }, []);
 
-    const handleClearOld = async () => {
-        if (!confirm("Delete visitor logs older than 30 days?")) return;
+    const handleClearAll = async () => {
+        if (!confirm("⚠️ Are you sure you want to delete ALL visitor logs?\nThis cannot be undone!")) return;
         try {
-            const result = await visitorApi.clearOld(30);
-            toast({ title: result.message });
+            // Send days=0 to delete everything
+            const result = await visitorApi.clearOld(0);
+            toast({ title: "Success", description: result.message });
             fetchData();
         } catch (error) {
             toast({ title: "Failed to clear logs", variant: "destructive" });
         }
     };
+
+    const getDeviceIcon = (type?: string) => { // Keep this part just to locate the replacement area correctly
+        // ...
+    }; // Actually I should just replace the handleClearOld function and the button rendering
+
 
     const getDeviceIcon = (type?: string) => {
         switch (type?.toLowerCase()) {
@@ -86,8 +92,8 @@ const AdminVisitors = () => {
                         <Button variant="outline" size="sm" onClick={fetchData}>
                             <RefreshCw size={14} className="mr-1" /> Refresh
                         </Button>
-                        <Button variant="outline" size="sm" className="text-red-500" onClick={handleClearOld}>
-                            <Trash2 size={14} className="mr-1" /> Clear Old
+                        <Button variant="outline" size="sm" className="text-red-500 hover:bg-red-50" onClick={handleClearAll}>
+                            <Trash2 size={14} className="mr-1" /> Clear All Logs
                         </Button>
                     </div>
                 </div>

@@ -1,7 +1,5 @@
-const { PrismaClient } = require('@prisma/client');
+const prisma = require('../utils/prisma');
 const { deleteFile, getFileUrl, getFilenameFromUrl } = require('../middleware/uploadMiddleware');
-
-const prisma = new PrismaClient();
 
 /**
  * Generate URL-friendly slug from title

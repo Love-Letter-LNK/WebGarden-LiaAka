@@ -1,5 +1,4 @@
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+const prisma = require('../utils/prisma');
 
 // Parse user agent for device/browser/os info
 const parseUserAgent = (ua) => {
@@ -257,11 +256,18 @@ exports.analytics = async (req, res) => {
 exports.clearOld = async (req, res) => {
     try {
         const { days = 30 } = req.body;
-        const cutoff = new Date();
-        cutoff.setDate(cutoff.getDate() - parseInt(days));
+
+        let where = {};
+        // If days is provided and > 0, filter by date.
+        // If days is 0, delete ALL logs (empty where clause).
+        if (parseInt(days) > 0) {
+            const cutoff = new Date();
+            cutoff.setDate(cutoff.getDate() - parseInt(days));
+            where = { createdAt: { lt: cutoff } };
+        }
 
         const deleted = await prisma.visitor.deleteMany({
-            where: { createdAt: { lt: cutoff } }
+            where
         });
 
         res.json({ message: `Deleted ${deleted.count} old visitor logs` });
