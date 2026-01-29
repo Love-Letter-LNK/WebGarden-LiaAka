@@ -256,21 +256,34 @@ exports.analytics = async (req, res) => {
 exports.clearOld = async (req, res) => {
     try {
         const { days = 30 } = req.body;
+        const daysInt = parseInt(days);
 
         let where = {};
+
         // If days is provided and > 0, filter by date.
-        // If days is 0, delete ALL logs (empty where clause).
-        if (parseInt(days) > 0) {
+        // If days is 0, delete ALL logs (empty where clause) AND reset stats.
+        if (daysInt > 0) {
             const cutoff = new Date();
-            cutoff.setDate(cutoff.getDate() - parseInt(days));
+            cutoff.setDate(cutoff.getDate() - daysInt);
             where = { createdAt: { lt: cutoff } };
+        } else {
+            // Reset stats counter if deleting everything
+            try {
+                await prisma.siteStats.update({
+                    where: { id: 'main' },
+                    data: { totalVisitors: 0, uniqueToday: 0 }
+                });
+            } catch (e) {
+                // Ignore if stats don't exist yet
+            }
         }
 
         const deleted = await prisma.visitor.deleteMany({
             where
         });
 
-        res.json({ message: `Deleted ${deleted.count} old visitor logs` });
+        const msg = daysInt > 0 ? `Deleted ${deleted.count} old visitor logs` : `Reset all visitor stats & deleted ${deleted.count} logs`;
+        res.json({ message: msg });
     } catch (error) {
         console.error("Error clearing visitors:", error);
         res.status(500).json({ error: "Failed to clear" });
