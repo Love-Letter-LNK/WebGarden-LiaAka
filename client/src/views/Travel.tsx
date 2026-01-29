@@ -73,7 +73,7 @@ const Travel = () => {
 
     return (
         <MainLayout>
-            <SEO title="Romantic Journey" description="Jejak perjalanan dan petualangan cinta Zekk & Lia. Keliling dunia bersama!" />
+            <SEO title="Romantic Journey" description="Jejak perjalanan dan petualangan cinta Aka & Lia. Keliling dunia bersama!" />
             {/* Book Modal */}
             <AnimatePresence>
                 {selectedPlace && (

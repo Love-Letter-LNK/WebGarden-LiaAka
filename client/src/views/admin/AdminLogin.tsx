@@ -62,7 +62,7 @@ const AdminLogin: React.FC = () => {
                             <Heart className="w-10 h-10 text-white fill-white" />
                         </div>
                         <h1 className="text-xl font-bold text-gray-800">Admin Login</h1>
-                        <p className="text-[10px] text-gray-500 mt-1">Zekk & Lia Digital Garden</p>
+                        <p className="text-[10px] text-gray-500 mt-1">Aka & Lia Digital Garden</p>
                     </div>
 
                     {/* Error Message */}
@@ -77,7 +77,7 @@ const AdminLogin: React.FC = () => {
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div>
                             <label className="block text-xs font-bold text-gray-700 mb-1">Email</label>
-                            <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="admin@liaazekk.com" required disabled={isSubmitting} className="border-2 border-pink-200 focus:border-pink-400" />
+                            <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="admin@aka-lia.love" required disabled={isSubmitting} className="border-2 border-pink-200 focus:border-pink-400" />
                         </div>
 
                         <div>

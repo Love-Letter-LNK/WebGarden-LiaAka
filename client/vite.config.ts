@@ -31,9 +31,9 @@ export default defineConfig(({ mode }) => ({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg', 'we.png'],
       manifest: {
-        name: "Zakaria & Lia's Digital Garden",
-        short_name: "Lia & Zekk",
-        description: "A romantic retro-pixel digital garden for Zakaria Mujur Prasetyo & Lia Nur Khasanah.",
+        name: "Aka & Lia's Digital Garden",
+        short_name: "Lia & Aka",
+        description: "A romantic retro-pixel digital garden for Aka & Lia Nur Khasanah.",
         icons: [
           {
             src: "/we.webp",

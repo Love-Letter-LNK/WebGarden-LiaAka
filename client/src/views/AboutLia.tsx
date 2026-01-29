@@ -26,7 +26,7 @@ const AboutLia = () => {
                         <div className="flex justify-center gap-2 flex-wrap">
                             <span className="bg-pink-100 text-pink-600 text-[8px] px-2 py-1 rounded-full">💕 Romantic</span>
                             <span className="bg-purple-100 text-purple-600 text-[8px] px-2 py-1 rounded-full">📚 Bookworm</span>
-                            <span className="bg-blue-100 text-blue-600 text-[8px] px-2 py-1 rounded-full">💙 Zekk's Lover</span>
+                            <span className="bg-blue-100 text-blue-600 text-[8px] px-2 py-1 rounded-full">💙 Aka's Lover</span>
                         </div>
                     </div>
 
@@ -43,7 +43,7 @@ const AboutLia = () => {
                             <p className="text-[10px] text-gray-600 leading-relaxed">
                                 Lia adalah tipe yang cerewet tapi penuh perhatian! Dia selalu mengekspresikan
                                 cintanya dengan kata-kata manis (meski kadang sambil ngomel). Dia suka menghabiskan
-                                waktu berkualitas bersama Zekk, entah itu ngobrol sampai larut malam atau sekadar
+                                waktu berkualitas bersama Aka, entah itu ngobrol sampai larut malam atau sekadar
                                 diam bersama. Setiap omelan adalah bentuk perhatiannya yang tulus! 💕
                             </p>
                         </div>
@@ -56,14 +56,14 @@ const AboutLia = () => {
                                 <MessageCircle size={14} className="text-pink-500" />
                                 <span className="text-[10px] font-bold text-pink-600">Si Cerewet</span>
                             </div>
-                            <p className="text-[8px] text-gray-500">Bawel? Iya! Tapi itu tandanya sayang sama Zekk!</p>
+                            <p className="text-[8px] text-gray-500">Bawel? Iya! Tapi itu tandanya sayang sama Aka!</p>
                         </div>
                         <div className="bg-white border-2 border-purple-200 rounded-lg p-3">
                             <div className="flex items-center gap-2 mb-2">
                                 <Heart size={14} className="text-purple-500" />
                                 <span className="text-[10px] font-bold text-purple-600">Super Perhatian</span>
                             </div>
-                            <p className="text-[8px] text-gray-500">Selalu ingat hal-hal kecil tentang Zekk!</p>
+                            <p className="text-[8px] text-gray-500">Selalu ingat hal-hal kecil tentang Aka!</p>
                         </div>
                         <div className="bg-white border-2 border-blue-200 rounded-lg p-3">
                             <div className="flex items-center gap-2 mb-2">
@@ -77,7 +77,7 @@ const AboutLia = () => {
                                 <Camera size={14} className="text-yellow-500" />
                                 <span className="text-[10px] font-bold text-yellow-600">Memory Keeper</span>
                             </div>
-                            <p className="text-[8px] text-gray-500">Suka foto-foto momen bareng Zekk!</p>
+                            <p className="text-[8px] text-gray-500">Suka foto-foto momen bareng Aka!</p>
                         </div>
                     </div>
 

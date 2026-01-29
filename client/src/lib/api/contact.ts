@@ -2,7 +2,7 @@ import { apiRequest } from './core';
 
 export interface ContactMessage {
     id: string;
-    recipient: 'zekk' | 'lia';
+    recipient: 'aka' | 'lia';
     message: string;
     senderName?: string;
     senderEmail?: string;
@@ -11,7 +11,7 @@ export interface ContactMessage {
 }
 
 export interface SubmitMessageDTO {
-    recipient: 'zekk' | 'lia';
+    recipient: 'aka' | 'lia';
     message: string;
     senderName?: string;
     senderEmail?: string;
@@ -20,7 +20,7 @@ export interface SubmitMessageDTO {
 export interface ContactStats {
     total: number;
     unread: number;
-    toZekk: number;
+    toAka: number;
     toLia: number;
 }
 

@@ -117,7 +117,7 @@ const Index = () => {
     <>
       <SEO
         title="Home"
-        description="Digital Garden kenangan perjalanan cinta Zekk & Lia. Menyimpan semua momen manis, foto, dan cerita kita."
+        description="Digital Garden kenangan perjalanan cinta Aka & Lia. Menyimpan semua momen manis, foto, dan cerita kita."
       />
       <AnimatePresence>
         {showLanding && (
@@ -241,7 +241,7 @@ const Index = () => {
             {/* MAIN BANNER - Couple Image */}
             <div className="border-4 border-pink-200 p-1 rounded-xl">
               <div className="relative h-64 w-full bg-gradient-to-br from-pink-50 to-blue-50 rounded overflow-hidden flex items-center justify-center">
-                <img src="/we.webp" className="h-full object-contain hover:scale-105 transition-all duration-700" alt="Zekk & Lia Together" />
+                <img src="/we.webp" className="h-full object-contain hover:scale-105 transition-all duration-700" alt="Aka & Lia Together" />
                 <div className="absolute bottom-0 w-full bg-white/90 p-2 text-center border-t border-pink-200">
                   <span className="text-pink-500 font-bold text-xs">💕 OUR LOVE STORY 💕</span>
                   <h3 className="font-bold text-sm text-gray-700">Kenangan Perjalanan Cinta</h3>
@@ -327,18 +327,18 @@ const Index = () => {
               <p className="text-[9px] text-purple-600">Our favorite moments!</p>
             </div>
 
-            {/* BLOGS - Both Zekk and Lia */}
+            {/* BLOGS - Both Aka and Lia */}
             <div className="grid grid-cols-2 gap-2">
-              {/* Zekk's Blog */}
+              {/* Aka's Blog */}
               <div
                 className="bg-blue-200 p-2 rounded text-center cursor-pointer hover:opacity-90 hover:scale-105 transition-transform"
-                onClick={() => handleBlogClick('Zekk')}
+                onClick={() => handleBlogClick('Aka')}
                 onMouseEnter={() => playSound('hover')}
               >
                 <div className="bg-white border-2 border-dashed border-blue-400 p-1 rounded-lg w-12 h-12 mx-auto mb-1 overflow-hidden">
-                  <img src="/zekk_pixel.webp" className="w-full h-[160%] object-cover object-top" alt="Zekk" />
+                  <img src="/zekk_pixel.webp" className="w-full h-[160%] object-cover object-top" alt="Aka" />
                 </div>
-                <h4 className="font-bold text-white text-[8px]">Zekk's BLOG</h4>
+                <h4 className="font-bold text-white text-[8px]">Aka's BLOG</h4>
               </div>
 
               {/* Lia's Blog */}
@@ -354,19 +354,19 @@ const Index = () => {
               </div>
             </div>
 
-            {/* MESSAGE - Options for Lia or Zekk */}
+            {/* MESSAGE - Options for Lia or Aka */}
             <div className="bg-yellow-100 border border-yellow-300 p-2 text-center rounded">
               <Mail className="w-6 h-6 mx-auto text-yellow-500 mb-1 animate-float" />
               <h4 className="font-bold text-yellow-600 text-xs">MESSAGE</h4>
               <p className="text-[9px] text-gray-500 mb-2">Send a love letter!</p>
               <div className="flex gap-1">
                 <Link
-                  to="/contact?to=zekk"
+                  to="/contact?to=aka"
                   className="flex-1 bg-blue-400 text-white text-[8px] px-2 py-1 rounded-full hover:bg-blue-500 hover:scale-105 transition-all block"
                   onClick={() => playSound('click')}
                   onMouseEnter={() => playSound('hover')}
                 >
-                  TO ZEKK
+                  TO AKA
                 </Link>
                 <Link
                   to="/contact?to=lia"
@@ -476,7 +476,7 @@ const Index = () => {
                   />
                   <div className="text-center py-2 bg-pink-50 rounded-b">
                     <p className="text-pink-500 font-bold text-sm">{previewCaption}</p>
-                    <p className="text-[10px] text-gray-400">💕 ZEKK & LIA 💕</p>
+                    <p className="text-[10px] text-gray-400">💕 AKA & LIA 💕</p>
                   </div>
                 </div>
               </div>

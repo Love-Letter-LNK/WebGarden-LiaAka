@@ -16,7 +16,7 @@ import Guide from "./views/Guide";
 import QnA from "./views/QnA";
 import Contact from "./views/Contact";
 import Category from "./views/Category";
-import AboutZekk from "./views/AboutZekk";
+import AboutAka from "./views/AboutZekk";
 import AboutLia from "./views/AboutLia";
 import LoveCalculator from "./views/LoveCalculator";
 import { AuthProvider } from "@/context/AuthContext";
@@ -137,10 +137,10 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
-          path="/about-zekk"
+          path="/about-aka"
           element={
             <RouteTransition>
-              <AboutZekk />
+              <AboutAka />
             </RouteTransition>
           }
         />

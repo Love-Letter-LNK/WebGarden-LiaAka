@@ -10,13 +10,13 @@ interface SEOProps {
 
 export const SEO = ({
     title,
-    description = "A romantic retro-pixel digital garden for Zakaria Mujur Prasetyo & Lia Nur Khasanah. Explore our memories, milestones, and love story!",
+    description = "A romantic retro-pixel digital garden for Aka & Lia Nur Khasanah. Explore our memories, milestones, and love story!",
     image = "/we.webp",
     url = "https://aka-lia.love/",
     type = "website"
 }: SEOProps) => {
     // Ensure title always has the site name suffix
-    const fullTitle = `${title} | Zakaria & Lia`;
+    const fullTitle = `${title} | Aka & Lia`;
 
     // Ensure absolute URLs for image and canonical link
     const absoluteUrl = url.startsWith('http') ? url : `https://aka-lia.love${url}`;

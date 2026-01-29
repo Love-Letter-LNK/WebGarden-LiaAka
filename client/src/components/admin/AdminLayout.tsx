@@ -146,7 +146,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children, title }) => 
 
             {/* FOOTER */}
             <footer className="bg-pink-100 border-t-4 border-pink-300 p-2 text-center relative z-10">
-                <p className="text-[10px] text-pink-400 font-bold">ADMIN CONSOLE v1.0 • © {new Date().getFullYear()} ZEKK & LIA</p>
+                <p className="text-[10px] text-pink-400 font-bold">ADMIN CONSOLE v1.0 • © {new Date().getFullYear()} AKA & LIA</p>
             </footer>
         </div>
     );

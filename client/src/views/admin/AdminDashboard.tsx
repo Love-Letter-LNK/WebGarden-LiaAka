@@ -76,7 +76,7 @@ const AdminDashboard: React.FC = () => {
             color: 'from-green-400 to-emerald-400',
             link: '/__admin/profiles',
             count: 2,
-            desc: 'Zekk & Lia'
+            desc: 'Aka & Lia'
         },
         {
             title: 'Messages',

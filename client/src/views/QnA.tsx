@@ -10,7 +10,7 @@ import { contactApi } from "@/lib/api";
 const faqItems = [
     {
         id: 1,
-        question: "Siapa Zekk dan Lia?",
+        question: "Siapa Aka dan Lia?",
         answer: "Kami adalah pasangan yang telah jatuh cinta dan memutuskan untuk membuat website ini sebagai dokumentasi perjalanan cinta kami! 💕",
     },
     {
@@ -36,7 +36,7 @@ const faqItems = [
     {
         id: 6,
         question: "Bagaimana cara mengirim pesan?",
-        answer: "Gunakan tombol 'TO ZEKK' atau 'TO LIA' di sidebar MESSAGE untuk mengirim love letter! 💌",
+        answer: "Gunakan tombol 'TO AKA' atau 'TO LIA' di sidebar MESSAGE untuk mengirim love letter! 💌",
     },
 ];
 
@@ -95,7 +95,7 @@ const QnA = () => {
                                 className={`px-4 py-2 rounded-full border-2 text-xs font-bold transition-all ${openId === 101 ? 'bg-blue-100 border-blue-400 text-blue-600' : 'border-gray-200 text-gray-400 hover:border-blue-200'}`}
                                 onClick={() => { playSound('click'); setOpenId(101); }} // Reuse openId state for simple toggle or use new state
                             >
-                                👦 To Zekk
+                                👦 To Aka
                             </button>
                             <button
                                 className={`px-4 py-2 rounded-full border-2 text-xs font-bold transition-all ${openId === 102 ? 'bg-pink-100 border-pink-400 text-pink-600' : 'border-gray-200 text-gray-400 hover:border-pink-200'}`}
@@ -108,7 +108,7 @@ const QnA = () => {
                         {(openId === 101 || openId === 102) && (
                             <form className="space-y-3" onSubmit={(e) => {
                                 e.preventDefault();
-                                const recipient = openId === 101 ? 'zekk' : 'lia';
+                                const recipient = openId === 101 ? 'aka' : 'lia';
                                 const form = e.target as HTMLFormElement;
                                 const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
                                 const senderName = (form.elements.namedItem('senderName') as HTMLInputElement).value;
@@ -129,7 +129,7 @@ const QnA = () => {
                                 />
                                 <textarea
                                     name="message"
-                                    placeholder={`Write something sweet to ${openId === 101 ? 'Zekk' : 'Lia'}...`}
+                                    placeholder={`Write something sweet to ${openId === 101 ? 'Aka' : 'Lia'}...`}
                                     className="w-full text-xs p-2 border border-gray-200 rounded h-24 focus:outline-none focus:border-purple-400"
                                     required
                                 />

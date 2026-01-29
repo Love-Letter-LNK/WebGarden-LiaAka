@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useSound } from "../hooks/useSound";
 import { MainLayout } from "../components/garden/MainLayout";
 
-const AboutZekk = () => {
+const AboutAka = () => {
     const playSound = useSound();
 
     return (
@@ -19,9 +19,9 @@ const AboutZekk = () => {
                     {/* Profile Card */}
                     <div className="bg-white border-4 border-blue-200 rounded-xl p-6 mb-6 text-center shadow-lg">
                         <div className="w-32 h-36 mx-auto bg-blue-100 border-3 border-blue-400 rounded-lg overflow-hidden shadow-lg mb-4">
-                            <img src="/zekk_pixel.webp" className="w-full h-[180%] object-cover object-top" alt="Zekk" />
+                            <img src="/zekk_pixel.webp" className="w-full h-[180%] object-cover object-top" alt="Aka" />
                         </div>
-                        <h2 className="text-xl font-bold text-blue-600 mb-1">ZEKK</h2>
+                        <h2 className="text-xl font-bold text-blue-600 mb-1">AKA</h2>
                         <p className="text-[10px] text-gray-500 mb-3">a.k.a Zakaria</p>
                         <div className="flex justify-center gap-2 flex-wrap">
                             <span className="bg-blue-100 text-blue-600 text-[8px] px-2 py-1 rounded-full">💻 Developer</span>
@@ -41,7 +41,7 @@ const AboutZekk = () => {
                                 <span className="text-xs font-bold text-blue-600">Physical Touch</span>
                             </div>
                             <p className="text-[10px] text-gray-600 leading-relaxed">
-                                Zekk adalah tipe orang yang mengekspresikan cinta melalui sentuhan fisik.
+                                Aka adalah tipe orang yang mengekspresikan cinta melalui sentuhan fisik.
                                 Pelukan hangat, genggaman tangan, dan kehadiran fisik adalah cara dia menunjukkan
                                 betapa sayangnya dia pada Lia. Setiap sentuhan adalah kata "Aku sayang kamu"
                                 yang tak terucap. 💕
@@ -109,10 +109,10 @@ const AboutZekk = () => {
                         </h3>
                         <div className="grid grid-cols-3 gap-2">
                             <div className="aspect-square bg-blue-50 rounded-lg overflow-hidden border border-blue-100 cursor-pointer hover:scale-105 transition-transform" onClick={() => playSound('click')}>
-                                <img src="/zekk_pixel.webp" className="w-full h-full object-cover" alt="Zekk 1" />
+                                <img src="/zekk_pixel.webp" className="w-full h-full object-cover" alt="Aka 1" />
                             </div>
                             <div className="aspect-square bg-blue-50 rounded-lg overflow-hidden border border-blue-100 cursor-pointer hover:scale-105 transition-transform" onClick={() => playSound('click')}>
-                                <img src="/we.webp" className="w-full h-full object-cover" alt="Zekk 2" />
+                                <img src="/we.webp" className="w-full h-full object-cover" alt="Aka 2" />
                             </div>
                             <div className="aspect-square bg-blue-50 rounded-lg overflow-hidden border border-blue-100 flex items-center justify-center cursor-pointer hover:bg-blue-100 transition-colors" onClick={() => playSound('click')}>
                                 <span className="text-[10px] text-blue-400 font-bold">+ More</span>
@@ -125,4 +125,4 @@ const AboutZekk = () => {
     );
 };
 
-export default AboutZekk;
+export default AboutAka;

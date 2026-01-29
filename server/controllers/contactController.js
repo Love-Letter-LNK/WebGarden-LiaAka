@@ -16,8 +16,8 @@ const submitMessage = async (req, res) => {
             return res.status(400).json({ error: 'Recipient and message are required' });
         }
 
-        if (!['zekk', 'lia'].includes(recipient)) {
-            return res.status(400).json({ error: 'Invalid recipient. Must be "zekk" or "lia"' });
+        if (!['aka', 'lia'].includes(recipient)) {
+            return res.status(400).json({ error: 'Invalid recipient. Must be "aka" or "lia"' });
         }
 
         const contact = await prisma.contactMessage.create({
@@ -134,14 +134,14 @@ const deleteMessage = async (req, res) => {
  */
 const getStats = async (req, res) => {
     try {
-        const [total, unread, toZekk, toLia] = await Promise.all([
+        const [total, unread, toAka, toLia] = await Promise.all([
             prisma.contactMessage.count(),
             prisma.contactMessage.count({ where: { isRead: false } }),
-            prisma.contactMessage.count({ where: { recipient: 'zekk' } }),
+            prisma.contactMessage.count({ where: { recipient: 'aka' } }),
             prisma.contactMessage.count({ where: { recipient: 'lia' } })
         ]);
 
-        res.json({ total, unread, toZekk, toLia });
+        res.json({ total, unread, toAka, toLia });
     } catch (error) {
         console.error('Get stats error:', error);
         res.status(500).json({ error: 'Failed to fetch stats' });

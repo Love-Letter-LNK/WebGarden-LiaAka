@@ -15,8 +15,8 @@ const Contact = () => {
     const { toast } = useToast();
 
     // Default to 'lia' if not specified, or grab from URL
-    const initialTo = searchParams.get('to') === 'zekk' ? 'zekk' : 'lia';
-    const [recipient, setRecipient] = useState<'zekk' | 'lia'>(initialTo);
+    const initialTo = searchParams.get('to') === 'aka' ? 'aka' : 'lia';
+    const [recipient, setRecipient] = useState<'aka' | 'lia'>(initialTo);
 
     // Form States
     const [senderName, setSenderName] = useState('');
@@ -26,7 +26,7 @@ const Contact = () => {
     // Update state if URL changes
     useEffect(() => {
         const to = searchParams.get('to');
-        if (to === 'zekk' || to === 'lia') {
+        if (to === 'aka' || to === 'lia') {
             setRecipient(to);
         }
     }, [searchParams]);
@@ -49,7 +49,7 @@ const Contact = () => {
             setSenderName('');
             toast({
                 title: "Message Sent! 💌",
-                description: `Your love letter to ${recipient === 'zekk' ? 'Zekk' : 'Lia'} has been sent!`,
+                description: `Your love letter to ${recipient === 'aka' ? 'Aka' : 'Lia'} has been sent!`,
             });
         } catch (error) {
             console.error("Failed to send message:", error);
@@ -79,13 +79,13 @@ const Contact = () => {
                         <div className="flex justify-center mb-6">
                             <div className="bg-gray-100 p-1 rounded-full flex gap-1">
                                 <button
-                                    onClick={() => { setRecipient('zekk'); playSound('click'); }}
-                                    className={`px-4 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-2 ${recipient === 'zekk'
+                                    onClick={() => { setRecipient('aka'); playSound('click'); }}
+                                    className={`px-4 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-2 ${recipient === 'aka'
                                         ? 'bg-blue-400 text-white shadow-md'
                                         : 'text-gray-500 hover:bg-gray-200'
                                         }`}
                                 >
-                                    <span className={recipient === 'zekk' ? 'animate-bounce' : ''}>💙</span> To Zekk
+                                    <span className={recipient === 'aka' ? 'animate-bounce' : ''}>💙</span> To Aka
                                 </button>
                                 <button
                                     onClick={() => { setRecipient('lia'); playSound('click'); }}
@@ -100,7 +100,7 @@ const Contact = () => {
                         </div>
 
                         <div className="space-y-4">
-                            <div className={`p-4 rounded-lg border-2 transition-colors ${recipient === 'zekk' ? 'bg-blue-50 border-blue-100' : 'bg-pink-50 border-pink-100'
+                            <div className={`p-4 rounded-lg border-2 transition-colors ${recipient === 'aka' ? 'bg-blue-50 border-blue-100' : 'bg-pink-50 border-pink-100'
                                 }`}>
 
                                 <div className="mb-4">
@@ -114,12 +114,12 @@ const Contact = () => {
                                 </div>
 
                                 <label className="block text-xs font-bold mb-1 text-gray-600">
-                                    Your Message for {recipient === 'zekk' ? 'Zekk' : 'Lia'}:
+                                    Your Message for {recipient === 'aka' ? 'Aka' : 'Lia'}:
                                 </label>
                                 <Textarea
                                     value={message}
                                     onChange={(e) => setMessage(e.target.value)}
-                                    placeholder={`Write something sweet to ${recipient === 'zekk' ? 'Zekk' : 'Lia'}...`}
+                                    placeholder={`Write something sweet to ${recipient === 'aka' ? 'Aka' : 'Lia'}...`}
                                     className="bg-white border-0 shadow-none focus-visible:ring-1 min-h-[120px]"
                                 />
                             </div>
@@ -127,7 +127,7 @@ const Contact = () => {
                             <Button
                                 onClick={handleSend}
                                 disabled={!message.trim() || !senderName.trim() || isSending}
-                                className={`w-full font-bold text-white transition-all ${recipient === 'zekk'
+                                className={`w-full font-bold text-white transition-all ${recipient === 'aka'
                                     ? 'bg-blue-400 hover:bg-blue-500'
                                     : 'bg-pink-400 hover:bg-pink-500'
                                     }`}
@@ -147,7 +147,7 @@ const Contact = () => {
                             <MessageSquare size={14} /> Other Ways to Connect
                         </h4>
                         <div className="flex justify-center gap-4">
-                            <span className="text-[10px] text-gray-500 hover:text-purple-500 transition-colors cursor-pointer">📧 zekk@example.com</span>
+                            <span className="text-[10px] text-gray-500 hover:text-purple-500 transition-colors cursor-pointer">📧 aka@example.com</span>
                             <span className="text-[10px] text-gray-500 hover:text-pink-500 transition-colors cursor-pointer">📧 lia@example.com</span>
                         </div>
                     </div>

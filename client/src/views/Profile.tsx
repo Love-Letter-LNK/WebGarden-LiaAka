@@ -49,12 +49,12 @@ const Profile = () => {
     }
 
     // Fallback if API fails or returns null (should be seeded though)
-    const zekkProfile = zekk || { name: 'Zekk', nickname: 'ZEKK', bio: 'Loading...', hobbies: '', funFacts: [], birthDate: '' };
+    const zekkProfile = zekk || { name: 'Aka', nickname: 'AKA', bio: 'Loading...', hobbies: '', funFacts: [], birthDate: '' };
     const liaProfile = lia || { name: 'Lia', nickname: 'LIA', bio: 'Loading...', hobbies: '', funFacts: [], birthDate: '' };
 
     return (
         <MainLayout>
-            <SEO title="About Us" description="Profil lengkap Zakaria & Lia. Kenali kami lebih dekat!" />
+            <SEO title="About Us" description="Profil lengkap Aka & Lia. Kenali kami lebih dekat!" />
             {/* Page Content */}
             <div className="flex-1 p-4 bg-gradient-to-b from-pink-50 to-blue-50 h-full rounded-lg overflow-y-auto">
                 <div className="max-w-4xl mx-auto pb-20">
@@ -67,9 +67,9 @@ const Profile = () => {
                                     <img
                                         src={zekk?.avatar || "/zekk_pixel.webp"}
                                         className="w-full h-full object-cover"
-                                        alt="Zekk"
+                                        alt="Aka"
                                         // Fallback to placeholder if image fails
-                                        onError={(e) => { e.currentTarget.src = "https://placehold.co/100x120/blue/white?text=Zekk"; }}
+                                        onError={(e) => { e.currentTarget.src = "https://placehold.co/100x120/blue/white?text=Aka"; }}
                                     />
                                 </div>
                                 <span className="text-xs font-bold text-blue-500 mt-2">{zekkProfile.nickname || zekkProfile.name.toUpperCase()}</span>
@@ -98,13 +98,13 @@ const Profile = () => {
 
                     {/* About Section */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                        {/* Zekk's Profile */}
+                        {/* Aka's Profile */}
                         <div className="bg-blue-100 border-2 border-blue-300 rounded-lg p-4 relative overflow-hidden">
                             <div className="absolute top-2 right-2 opacity-10">
                                 <Star size={64} className="text-blue-500" />
                             </div>
                             <h3 className="font-bold text-blue-600 text-sm mb-2 flex items-center gap-2 relative z-10">
-                                <Star size={14} /> About Zekk
+                                <Star size={14} /> About Aka
                             </h3>
                             <div className="text-[10px] text-gray-600 mb-3 relative z-10">
                                 <p className="mb-2 italic">"{zekkProfile.bio}"</p>

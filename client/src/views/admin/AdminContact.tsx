@@ -13,7 +13,7 @@ const AdminContact: React.FC = () => {
     const [messages, setMessages] = useState<ContactMessage[]>([]);
     const [stats, setStats] = useState<ContactStats | null>(null);
     const [loading, setLoading] = useState(true);
-    const [filter, setFilter] = useState<'all' | 'zekk' | 'lia' | 'unread'>('all');
+    const [filter, setFilter] = useState<'all' | 'aka' | 'lia' | 'unread'>('all');
     const [selectedMessage, setSelectedMessage] = useState<ContactMessage | null>(null);
     const [isDeleteOpen, setIsDeleteOpen] = useState(false);
     const [deletingId, setDeletingId] = useState<string | null>(null);
@@ -23,7 +23,7 @@ const AdminContact: React.FC = () => {
         setLoading(true);
         try {
             const params: any = {};
-            if (filter === 'zekk' || filter === 'lia') params.recipient = filter;
+            if (filter === 'aka' || filter === 'lia') params.recipient = filter;
             if (filter === 'unread') params.unreadOnly = true;
             const [messagesData, statsData] = await Promise.all([
                 contactApi.list(params),
@@ -92,8 +92,8 @@ const AdminContact: React.FC = () => {
                     </div>
                     <div className="bg-white border-2 border-blue-200 rounded-xl p-4 text-center shadow-sm relative overflow-hidden group hover:border-blue-300 transition-colors">
                         <div className="absolute top-0 right-0 p-2 text-blue-500 opacity-10 group-hover:opacity-20 transition-opacity"><User size={40} /></div>
-                        <span className="text-3xl font-black text-blue-500 block mb-1">{stats.toZekk}</span>
-                        <p className="text-[10px] font-bold text-blue-300 uppercase tracking-wider">To Zekk 💙</p>
+                        <span className="text-3xl font-black text-blue-500 block mb-1">{stats.toAka}</span>
+                        <p className="text-[10px] font-bold text-blue-300 uppercase tracking-wider">To Aka 💙</p>
                     </div>
                     <div className="bg-white border-2 border-pink-200 rounded-xl p-4 text-center shadow-sm relative overflow-hidden group hover:border-pink-300 transition-colors">
                         <div className="absolute top-0 right-0 p-2 text-pink-500 opacity-10 group-hover:opacity-20 transition-opacity"><User size={40} /></div>
@@ -107,13 +107,13 @@ const AdminContact: React.FC = () => {
             <div className="bg-[#fff Bea] border-2 border-dashed border-yellow-200 rounded-xl p-4 mb-6 flex flex-wrap items-center justify-between gap-4 shadow-sm bg-yellow-50/30">
                 <div className="flex gap-2 bg-white p-1.5 rounded-lg border border-yellow-100 shadow-sm">
                     <div className="flex items-center px-2 text-yellow-400"><Filter size={14} /></div>
-                    {(['all', 'zekk', 'lia', 'unread'] as const).map((f) => (
+                    {(['all', 'aka', 'lia', 'unread'] as const).map((f) => (
                         <button
                             key={f}
                             onClick={() => { playSound('click'); setFilter(f); }}
                             className={`px-3 py-1.5 rounded-md text-[10px] font-bold transition-all uppercase tracking-wide ${filter === f
-                                    ? 'bg-yellow-400 text-white shadow-sm scale-105'
-                                    : 'text-gray-500 hover:bg-yellow-50 hover:text-yellow-600'
+                                ? 'bg-yellow-400 text-white shadow-sm scale-105'
+                                : 'text-gray-500 hover:bg-yellow-50 hover:text-yellow-600'
                                 }`}
                         >
                             {f === 'all' ? 'All' : f === 'unread' ? 'Unread' : f}
@@ -158,7 +158,7 @@ const AdminContact: React.FC = () => {
                             <div className="flex items-start gap-4">
                                 <div className={`
                                     w-12 h-12 rounded-full flex items-center justify-center border-2 shadow-sm shrink-0
-                                    ${msg.recipient === 'zekk'
+                                    ${msg.recipient === 'aka'
                                         ? 'bg-blue-50 border-blue-100 text-blue-500'
                                         : 'bg-pink-50 border-pink-100 text-pink-500'
                                     }
@@ -169,9 +169,9 @@ const AdminContact: React.FC = () => {
                                 <div className="flex-1 min-w-0">
                                     <div className="flex items-center justify-between mb-1">
                                         <div className="flex items-center gap-2">
-                                            <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider border ${msg.recipient === 'zekk'
-                                                    ? 'bg-blue-100 text-blue-600 border-blue-200'
-                                                    : 'bg-pink-100 text-pink-600 border-pink-200'
+                                            <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider border ${msg.recipient === 'aka'
+                                                ? 'bg-blue-100 text-blue-600 border-blue-200'
+                                                : 'bg-pink-100 text-pink-600 border-pink-200'
                                                 }`}>
                                                 For {msg.recipient}
                                             </span>
@@ -207,12 +207,12 @@ const AdminContact: React.FC = () => {
                 <DialogContent className="max-w-xl bg-[#fffdf5] border-4 border-dashed border-yellow-200 shadow-[8px_8px_0_0_rgba(253,224,71,0.5)] rounded-3xl">
                     <DialogHeader className="border-b border-dashed border-yellow-200 pb-4">
                         <DialogTitle className="flex items-center gap-3 text-xl font-bold text-gray-800">
-                            <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white ${selectedMessage?.recipient === 'zekk' ? 'bg-blue-400' : 'bg-pink-400'}`}>
+                            <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white ${selectedMessage?.recipient === 'aka' ? 'bg-blue-400' : 'bg-pink-400'}`}>
                                 <User size={20} />
                             </div>
                             <div>
                                 <span className="block text-sm font-normal text-gray-500">Message for</span>
-                                {selectedMessage?.recipient === 'zekk' ? 'Zekk 💙' : 'Lia 💗'}
+                                {selectedMessage?.recipient === 'aka' ? 'Aka 💙' : 'Lia 💗'}
                             </div>
                         </DialogTitle>
                     </DialogHeader>

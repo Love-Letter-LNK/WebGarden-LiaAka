@@ -64,7 +64,7 @@ export const NewsModal = ({ news, onClose }: NewsModalProps) => {
 
                     {/* Footer */}
                     <div className="bg-gray-50 p-2 text-center border-t border-gray-100 text-[9px] text-gray-400">
-                        OFFICIAL ANNOUNCEMENT • ZEKK & LIA
+                        OFFICIAL ANNOUNCEMENT • AKA & LIA
                     </div>
                 </motion.div>
             </div>
