@@ -39,7 +39,7 @@ Masuk ke terminal VPS via SSH, lalu ikuti mantra ini:
 
 #### 1. Tarik Kode Terbaru
 ```bash
-cd /var/www/html
+cd /var/www/WebGarden-LiaAka
 git pull
 ```
 *Sekarang kode di VPS sudah sama dengan GitHub. TAPI... tampilan di browser belum berubah. Kenapa? Karena kita belum "membangun" ulang.*
@@ -54,7 +54,7 @@ cd ../server && npm install
 #### 3. BUILD ULANG Frontend (Wajib untuk Tampilan!) 🏗️
 Ini langkah kunci. React harus mengubah kode `jsx` menjadi `html/css` biasa yang dimengerti browser.
 ```bash
-cd /var/www/html/client
+cd /var/www/WebGarden-LiaAka/client
 npm run build
 ```
 *Tunggu prosesnya selesai. Setelah selesai, Nginx akan otomatis menyajikan file tampilan yang baru.*
@@ -73,7 +73,7 @@ Setiap kali Anda habis coding di laptop dan mau update di VPS, jalankan urutan i
 
 ```bash
 # 1. Masuk Folder
-cd /var/www/html
+cd /var/www/WebGarden-LiaAka
 
 # 2. Ambil Kode
 git pull
@@ -112,7 +112,7 @@ Jadi selama Anda hanya menjalankan "Mantra Sakti" di atas, data aman.
 Sangat disarankan! Jalankan perintah backup yang sudah kita buat:
 ```bash
 # Backup dulu
-cd /var/www/html/server
+cd /var/www/WebGarden-LiaAka/server
 ./scripts/backup-db.sh
 
 # Baru update
@@ -127,7 +127,7 @@ git pull ...
 
 ### 4. Bagaimana dengan file Gambar/Lagu yang saya upload?
 **JAWABAN: AMAN.**
-File yang Anda upload lewat Admin Panel disimpan di folder khusus: `/var/www/html/server/uploads`.
+File yang Anda upload lewat Admin Panel disimpan di folder khusus: `/var/www/WebGarden-LiaAka/server/uploads`.
 
 Folder ini **DIABAIKAN** oleh Git (kita sudah setting `.gitignore`).
 Artinya:

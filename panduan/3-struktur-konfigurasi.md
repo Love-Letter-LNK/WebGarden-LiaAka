@@ -6,7 +6,7 @@ Di bab ini, kita akan membedah file-file "sakti" yang mengatur hidup-matinya apl
 
 ## 1. `.env` (Environment Variables) 🗝️
 
-**Lokasi:** `/var/www/html/server/.env`
+**Lokasi:** `/var/www/WebGarden-LiaAka/server/.env`
 **Fungsi:** Menyimpan rahasia negara.
 
 ```env
@@ -24,7 +24,7 @@ Ini memungkinkan kode yang SAMA dipakai di Laptop (Dev) dan di VPS (Prod) dengan
 
 ## 2. `ecosystem.config.js` (Surat Perintah Kerja) 📋
 
-**Lokasi:** `/var/www/html/server/ecosystem.config.js`
+**Lokasi:** `/var/www/WebGarden-LiaAka/server/ecosystem.config.js`
 **Fungsi:** Instruksi untuk PM2 (Mandor).
 
 ```javascript
@@ -45,7 +45,7 @@ Jika Anda mengubah nama di sini, Anda harus menghapus proses lama di PM2 dan sta
 
 ## 3. Nginx Config (Rambu Lalu Lintas) 🚦
 
-**Lokasi:** `/etc/nginx/sites-available/liaazekk`
+**Lokasi:** `/etc/nginx/sites-available/aka-lia`
 **Fungsi:** Peta jalan untuk Nginx.
 
 ```nginx
@@ -74,7 +74,7 @@ server {
 
 ## 4. `package.json` (Daftar Belanja & Resep) 🛒
 
-**Lokasi:** `/var/www/html/server/package.json`
+**Lokasi:** `/var/www/WebGarden-LiaAka/server/package.json`
 
 1.  **Dependencies**: Daftar "bahan baku" yang harus dibeli (di-download) agar aplikasi jalan. Contoh: `express`, `prisma`, `bcrypt`.
     *   Saat Anda ketik `npm install`, Node.js membaca daftar ini dan belanja otomatis.

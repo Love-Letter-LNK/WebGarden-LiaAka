@@ -11,7 +11,7 @@ Dokumen ini menjelaskan secara mendalam apa itu VPS, bagaimana ia bekerja, dan t
 - **VPS (Milik Anda)**: Ibarat menyewa Ruko Ruko sendiri. Anda bebas mengecat tembok, menjebol pintu, memasang CCTV, atau menjadikan toko apapun yang Anda mau. Tetangga tidak akan mengganggu performa Ruko Anda.
 
 ### Kenapa VPS?
-Karena kita butuh **kontrol penuh**. Aplikasi modern (seperti Lia & Zekk Garden) butuh program khusus (Node.js) yang seringkali tidak diizinkan berjalan di Shared Hosting biasa.
+Karena kita butuh **kontrol penuh**. Aplikasi modern (seperti Lia & Aka Garden) butuh program khusus (Node.js) yang seringkali tidak diizinkan berjalan di Shared Hosting biasa.
 
 ---
 
@@ -30,7 +30,7 @@ Agar VPS bisa melayani pengunjung website, kita merekrut "tim pekerja". Berikut 
 ### B. Nginx (Si Resepsionis & Satpam) 👮‍♂️
 *   **Peran**: Menerima tamu di pintu depan.
 *   **Tugas**:
-    1.  **Menyapa Tamu**: Saat orang mengetik `liaazekk.com`, Nginx yang pertama menjawab.
+    1.  **Menyapa Tamu**: Saat orang mengetik `aka-lia.love`, Nginx yang pertama menjawab.
     2.  **Membagi Tugas (Reverse Proxy)**:
         *   "Oh, Anda mau lihat gambar? Silakan lihat di rak pajangan (Folder Static)."
         *   "Oh, Anda mau login? Silakan bicara sama Koki di dapur (Node.js)."
