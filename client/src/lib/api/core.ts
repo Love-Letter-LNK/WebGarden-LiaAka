@@ -41,9 +41,15 @@ export async function apiRequest<T>(
 
     const response = await fetch(url, config);
 
-    // Handle empty responses
+    // Handle empty responses & non-JSON errors
     const text = await response.text();
-    const data = text ? JSON.parse(text) : null;
+    let data;
+    try {
+        data = text ? JSON.parse(text) : null;
+    } catch (e) {
+        // If response is not JSON (e.g. rate limit text), wrap it in error object
+        data = { error: text || response.statusText || 'Unknown error' };
+    }
 
     if (!response.ok) {
         throw new ApiError(

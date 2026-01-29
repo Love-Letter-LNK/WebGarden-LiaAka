@@ -48,7 +48,7 @@ app.use(cors({
 // Rate Limiting
 const loginLimiter = rateLimit({
     windowMs: 60 * 60 * 1000, // 1 hour
-    max: 5, // Limit each IP to 5 login requests per windowMs
+    max: 100, // Increased limit for admin convenience
     message: { error: 'Too many login attempts, please try again after an hour' },
     standardHeaders: true,
     legacyHeaders: false,
