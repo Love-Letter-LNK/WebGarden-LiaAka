@@ -24,6 +24,9 @@ const visitorRoutes = require('./routes/visitorRoutes');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Trust proxy (required for rate limiter behind Nginx)
+app.set('trust proxy', 1);
+
 // ============ MIDDLEWARE ============
 
 // Security Headers
