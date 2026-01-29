@@ -65,8 +65,8 @@ app.use('/api', apiLimiter);
 
 const contactLimiter = rateLimit({
     windowMs: 60 * 60 * 1000, // 1 hour
-    max: 5, // Limit each IP to 5 contact messages per hour
-    message: { error: 'Ups! Kamu mengirim terlalu banyak pesan (maks 5 per jam). Istirahat dulu ya! 💌' },
+    max: 50, // Increased limit for testing
+    message: { error: 'Ups! Kamu mengirim terlalu banyak pesan (maks 50 per jam). Istirahat dulu ya! 💌' },
     standardHeaders: true,
     legacyHeaders: false,
 });
