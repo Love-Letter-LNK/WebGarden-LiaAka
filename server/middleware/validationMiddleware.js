@@ -19,7 +19,7 @@ const submitMessageValidation = [
     body('recipient')
         .trim()
         .notEmpty().withMessage('Recipient is required')
-        .isIn(['zekk', 'lia']).withMessage('Recipient must be "zekk" or "lia"'),
+        .isIn(['aka', 'lia']).withMessage('Recipient must be "aka" or "lia"'),
     body('message')
         .trim()
         .notEmpty().withMessage('Message is required')
