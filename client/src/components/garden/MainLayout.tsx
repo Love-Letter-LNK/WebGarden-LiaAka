@@ -62,7 +62,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                         </div>
                         <Link to="/" className="hover:opacity-80 transition-opacity">
                             <h1 className="text-lg md:text-4xl font-black drop-shadow-sm flex items-center gap-2">
-                                <span className="text-blue-500 dark:text-cyan-400">ZEKK</span>
+                                <span className="text-blue-500 dark:text-cyan-400">AKA</span>
                                 <span className="text-purple-400 text-2xl md:text-3xl">&</span>
                                 <span className="text-pink-500 dark:text-indigo-400">LIA</span>
                             </h1>
@@ -79,9 +79,9 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                     <div className="flex gap-3 z-10 items-end">
                         <div className="flex flex-col items-center group">
                             <div className="w-16 h-20 bg-blue-100 dark:bg-slate-700 border-2 border-blue-400 dark:border-cyan-500 rounded-lg cursor-pointer group-hover:scale-110 transition-transform overflow-hidden shadow-md">
-                                <img src="/zekk_pixel.webp" className="w-full h-[180%] object-cover object-top" alt="Zekk" />
+                                <img src="/zekk_pixel.webp" className="w-full h-[180%] object-cover object-top" alt="Aka" />
                             </div>
-                            <span className="text-[9px] font-bold text-blue-500 dark:text-cyan-400 bg-white dark:bg-slate-800 px-2 rounded-full -mt-2 border border-blue-200 dark:border-cyan-800 shadow-sm">ZEKK</span>
+                            <span className="text-[9px] font-bold text-blue-500 dark:text-cyan-400 bg-white dark:bg-slate-800 px-2 rounded-full -mt-2 border border-blue-200 dark:border-cyan-800 shadow-sm">AKA</span>
                         </div>
                         <div className="flex flex-col items-center group">
                             <div className="w-16 h-20 bg-pink-100 dark:bg-slate-700 border-2 border-pink-400 dark:border-indigo-500 rounded-lg cursor-pointer group-hover:scale-110 transition-transform overflow-hidden shadow-md">
@@ -136,11 +136,11 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             {/* FOOTER */}
             <footer className="bg-pink-100 dark:bg-slate-800 border-t-4 border-pink-300 dark:border-blue-500 p-4 text-center mt-auto relative z-10 transition-colors duration-500">
                 <img src="/love2.webp" alt="" className="w-8 mx-auto mb-2 opacity-80" />
-                <p className="text-[10px] text-pink-400 dark:text-blue-300 font-bold">© {new Date().getFullYear()} ZEKK & LIA. All Rights Reserved.</p>
+                <p className="text-[10px] text-pink-400 dark:text-blue-300 font-bold">© {new Date().getFullYear()} AKA & LIA. All Rights Reserved.</p>
 
                 <div className="flex justify-center items-end gap-3 mt-2">
                     <div className="w-10 h-12 overflow-hidden">
-                        <img src="/zekk_pixel.webp" className="w-full h-[180%] object-cover object-top" alt="Zekk" />
+                        <img src="/zekk_pixel.webp" className="w-full h-[180%] object-cover object-top" alt="Aka" />
                     </div>
 
                     <div className="flex items-center gap-2">

@@ -120,7 +120,7 @@ const AdminProfiles: React.FC = () => {
                                 </div>
                                 <h3 className="font-bold text-lg flex items-center justify-center gap-2" style={{ color: profile.color }}>
                                     {profile.nickname || profile.name}
-                                    {profile.name === 'Zekk' ? '💙' : '💗'}
+                                    {profile.name === 'Aka' ? '💙' : '💗'}
                                 </h3>
                                 <p className="text-xs font-bold uppercase tracking-wider text-gray-400">{profile.name}</p>
                             </div>

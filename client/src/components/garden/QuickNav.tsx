@@ -23,8 +23,8 @@ const navItems: NavItem[] = [
 const allPages = [
     { label: "Home", path: "/", keywords: ["home", "beranda", "utama"] },
     { label: "News", path: "/news", keywords: ["news", "berita", "update"] },
-    { label: "Profile", path: "/profile", keywords: ["profile", "profil", "zekk", "lia", "about"] },
-    { label: "About Zekk", path: "/about-zekk", keywords: ["zekk", "zakaria", "about", "profil"] },
+    { label: "Profile", path: "/profile", keywords: ["profile", "profil", "aka", "lia", "about"] },
+    { label: "About Aka", path: "/about-aka", keywords: ["aka", "zakaria", "about", "profil"] },
     { label: "About Lia", path: "/about-lia", keywords: ["lia", "about", "profil"] },
     { label: "Guide", path: "/guide", keywords: ["guide", "panduan", "tutorial"] },
     { label: "Q&A", path: "/qna", keywords: ["qna", "tanya", "jawab", "faq", "pertanyaan"] },

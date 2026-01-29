@@ -46,7 +46,7 @@ export const seedMemories: Memory[] = [
         story: "Just walking around the city with no destination. We found that weird statue and took a thousand silly photos.",
         location: "Downtown",
         images: [
-            { url: "/zekk_pixel.webp", alt: "Zekk silly face" },
+            { url: "/zekk_pixel.webp", alt: "Aka silly face" },
             { url: "/lia_pixel.webp", alt: "Lia laughing" }
         ],
         createdAt: new Date().toISOString(),

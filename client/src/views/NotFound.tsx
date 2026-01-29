@@ -54,12 +54,12 @@ const NotFound = () => {
         </div>
 
 
-        {/* Zekk Character - Left Side */}
+        {/* Aka Character - Left Side */}
         <div className="absolute left-4 md:left-12 lg:left-20 top-1/2 -translate-y-1/2 z-10 hidden md:block">
           <div className="relative animate-float" style={{ animationDuration: '3s' }}>
             <img
               src="/zekk_pixel.webp"
-              alt="Zekk"
+              alt="Aka"
               className="w-32 h-40 md:w-40 md:h-52 lg:w-48 lg:h-60 object-contain drop-shadow-2xl opacity-50 grayscale"
             />
             <div className="absolute -top-2 right-0 text-2xl md:text-3xl animate-twinkle">💔</div>

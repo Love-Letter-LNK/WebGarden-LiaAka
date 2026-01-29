@@ -104,11 +104,11 @@ function ScrollScene({ progress, showButton, onEnter }: { progress: MotionValue<
             {/* === SCENE 2: AVATARS === */}
             <motion.div style={{ opacity: charOp }} className="absolute w-full px-4 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 text-center">
 
-                {/* ZEKK */}
+                {/* AKA */}
                 <motion.div style={{ x: zekkX }} className="flex flex-col items-center gap-4">
                     <div className="relative group">
                         <div className="absolute inset-0 bg-blue-200 rounded-full blur-xl opacity-50 group-hover:opacity-80 transition-opacity"></div>
-                        <img src="/zekk_pixel.webp" className="relative w-32 md:w-48 drop-shadow-2xl hover:scale-110 transition-transform" alt="Zekk" />
+                        <img src="/zekk_pixel.webp" className="relative w-32 md:w-48 drop-shadow-2xl hover:scale-110 transition-transform" alt="Aka" />
                         <div className="absolute -top-4 -right-4 animate-bounce delay-700">
                             <img src="/computer.webp" className="w-8 md:w-12" alt="" />
                         </div>

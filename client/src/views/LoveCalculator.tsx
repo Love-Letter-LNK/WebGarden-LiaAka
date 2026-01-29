@@ -32,10 +32,10 @@ const LoveCalculator = () => {
         // Normalize to 0-100
         let percentage = Math.abs(hash % 101);
 
-        // Easter eggs for Zekk & Lia
+        // Easter eggs for Aka & Lia
         if (
-            (name1.toLowerCase().includes("zekk") && name2.toLowerCase().includes("lia")) ||
-            (name1.toLowerCase().includes("lia") && name2.toLowerCase().includes("zekk")) ||
+            (name1.toLowerCase().includes("aka") && name2.toLowerCase().includes("lia")) ||
+            (name1.toLowerCase().includes("lia") && name2.toLowerCase().includes("aka")) ||
             (name1.toLowerCase().includes("zakaria") && name2.toLowerCase().includes("lia"))
         ) {
             percentage = 100;

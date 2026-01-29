@@ -12,7 +12,7 @@ import { format } from "date-fns";
 
 const Profile = () => {
     const playSound = useSound();
-    const [zekk, setZekk] = useState<ProfileType | null>(null);
+    const [aka, setAka] = useState<ProfileType | null>(null);
     const [lia, setLia] = useState<ProfileType | null>(null);
     const [journey, setJourney] = useState<JourneyMilestone[]>([]);
     const [loading, setLoading] = useState(true);
@@ -20,12 +20,12 @@ const Profile = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [zekkData, liaData, journeyData] = await Promise.all([
+                const [akaData, liaData, journeyData] = await Promise.all([
                     profilesApi.get('zekk'),
                     profilesApi.get('lia'),
                     journeyApi.list()
                 ]);
-                setZekk(zekkData);
+                setAka(akaData);
                 setLia(liaData);
                 setJourney(journeyData);
             } catch (err) {
@@ -49,7 +49,7 @@ const Profile = () => {
     }
 
     // Fallback if API fails or returns null (should be seeded though)
-    const zekkProfile = zekk || { name: 'Aka', nickname: 'AKA', bio: 'Loading...', hobbies: '', funFacts: [], birthDate: '' };
+    const akaProfile = aka || { name: 'Aka', nickname: 'AKA', bio: 'Loading...', hobbies: '', funFacts: [], birthDate: '' };
     const liaProfile = lia || { name: 'Lia', nickname: 'LIA', bio: 'Loading...', hobbies: '', funFacts: [], birthDate: '' };
 
     return (
@@ -65,15 +65,15 @@ const Profile = () => {
                             <div className="flex flex-col items-center">
                                 <div className="w-24 h-28 bg-blue-100 border-3 border-blue-400 rounded-lg overflow-hidden shadow-lg relative">
                                     <img
-                                        src={zekk?.avatar || "/zekk_pixel.webp"}
+                                        src={aka?.avatar || "/zekk_pixel.webp"}
                                         className="w-full h-full object-cover"
                                         alt="Aka"
                                         // Fallback to placeholder if image fails
                                         onError={(e) => { e.currentTarget.src = "https://placehold.co/100x120/blue/white?text=Aka"; }}
                                     />
                                 </div>
-                                <span className="text-xs font-bold text-blue-500 mt-2">{zekkProfile.nickname || zekkProfile.name.toUpperCase()}</span>
-                                <p className="text-[8px] text-gray-400">{zekkProfile.name}</p>
+                                <span className="text-xs font-bold text-blue-500 mt-2">{akaProfile.nickname || akaProfile.name.toUpperCase()}</span>
+                                <p className="text-[8px] text-gray-400">{akaProfile.name}</p>
                             </div>
                             <div className="flex items-center">
                                 <Heart className="text-pink-500 w-8 h-8 animate-pulse" />
@@ -107,16 +107,16 @@ const Profile = () => {
                                 <Star size={14} /> About Aka
                             </h3>
                             <div className="text-[10px] text-gray-600 mb-3 relative z-10">
-                                <p className="mb-2 italic">"{zekkProfile.bio}"</p>
+                                <p className="mb-2 italic">"{akaProfile.bio}"</p>
                                 <ul className="space-y-1">
-                                    <li>🎂 Born: {zekkProfile.birthDate ? format(new Date(zekkProfile.birthDate), "MMMM do") : '-'}</li>
-                                    <li>💼 Hobbies: {zekkProfile.hobbies}</li>
+                                    <li>🎂 Born: {akaProfile.birthDate ? format(new Date(akaProfile.birthDate), "MMMM do") : '-'}</li>
+                                    <li>💼 Hobbies: {akaProfile.hobbies}</li>
                                 </ul>
                             </div>
                             {/* Fun Facts Preview */}
-                            {zekkProfile.funFacts && zekkProfile.funFacts.length > 0 && (
+                            {akaProfile.funFacts && akaProfile.funFacts.length > 0 && (
                                 <div className="mt-2 bg-white/50 p-2 rounded text-[9px] text-blue-800">
-                                    Let you know: {zekkProfile.funFacts[0]}
+                                    Let you know: {akaProfile.funFacts[0]}
                                 </div>
                             )}
                         </div>
