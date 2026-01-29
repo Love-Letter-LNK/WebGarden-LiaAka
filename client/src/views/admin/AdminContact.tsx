@@ -120,7 +120,7 @@ const AdminContact: React.FC = () => {
                         </button>
                     ))}
                 </div>
-                <Button variant="outline" size="sm" onClick={() => { playSound('refresh'); fetchData(); }} className="bg-white border-yellow-200 text-yellow-600 hover:bg-yellow-50 hover:border-yellow-300">
+                <Button variant="outline" size="sm" onClick={() => { playSound('click'); fetchData(); }} className="bg-white border-yellow-200 text-yellow-600 hover:bg-yellow-50 hover:border-yellow-300">
                     <RefreshCw size={14} className="mr-2" /> Refresh
                 </Button>
             </div>
