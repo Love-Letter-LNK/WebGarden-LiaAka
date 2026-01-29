@@ -2,6 +2,7 @@ import { Heart, Star, Calendar, ArrowRight, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useSound } from "../hooks/useSound";
 import { MainLayout } from "../components/garden/MainLayout";
+import { SEO } from "@/components/seo/SEO";
 import { useEffect, useState } from "react";
 import { profilesApi } from "@/lib/api/profiles";
 import { journeyApi } from "@/lib/api/journey";
@@ -53,6 +54,7 @@ const Profile = () => {
 
     return (
         <MainLayout>
+            <SEO title="About Us" description="Profil lengkap Zakaria & Lia. Kenali kami lebih dekat!" />
             {/* Page Content */}
             <div className="flex-1 p-4 bg-gradient-to-b from-pink-50 to-blue-50 h-full rounded-lg overflow-y-auto">
                 <div className="max-w-4xl mx-auto pb-20">

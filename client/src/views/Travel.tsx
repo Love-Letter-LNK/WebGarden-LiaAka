@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { MainLayout } from '@/components/garden/MainLayout';
+import { SEO } from '@/components/seo/SEO';
 import { usePageTitle } from '@/hooks/usePageTitle';
 import { travelApi, TravelLog } from '@/lib/api';
 import { MapPin, Plane, Calendar, Heart, ExternalLink, ChevronLeft, ChevronRight, BookOpen } from 'lucide-react';
@@ -72,6 +73,7 @@ const Travel = () => {
 
     return (
         <MainLayout>
+            <SEO title="Romantic Journey" description="Jejak perjalanan dan petualangan cinta Zekk & Lia. Keliling dunia bersama!" />
             {/* Book Modal */}
             <AnimatePresence>
                 {selectedPlace && (

@@ -12,6 +12,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Search, Plus, Sparkles, Filter, Edit } from "lucide-react";
 import { FloatingDecorations } from "@/components/garden/FloatingDecorations";
 import { MainLayout } from "@/components/garden/MainLayout";
+import { SEO } from "@/components/seo/SEO";
 import { useAuth } from "@/hooks/useAuth";
 
 const Memories = () => {
@@ -73,6 +74,7 @@ const Memories = () => {
 
     return (
         <MainLayout>
+            <SEO title="Our Memories" description="Koleksi foto dan kenangan indah kita. Setiap piksel adalah cerita." />
             <div className="pb-20 relative">
                 {/* Page Title Section */}
                 <div className="relative bg-gradient-to-b from-pink-50 to-white pt-6 pb-4 px-4 text-center overflow-hidden rounded-xl mb-4 border-2 border-pink-100 border-dashed">

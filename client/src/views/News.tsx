@@ -2,6 +2,7 @@ import { Newspaper, Calendar, Heart, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useSound } from "../hooks/useSound";
 import { MainLayout } from "../components/garden/MainLayout";
+import { SEO } from "@/components/seo/SEO";
 import { useEffect, useState } from "react";
 import { NewsItem } from "@/types/news";
 import { newsApi } from "@/lib/api/news";
@@ -35,6 +36,7 @@ const News = () => {
 
     return (
         <MainLayout>
+            <SEO title="Latest News" description="Kabar dan update terbaru dari perjalanan cinta kami." />
             {/* News Modal */}
             {selectedNews && (
                 <NewsModal news={selectedNews} onClose={() => setSelectedNews(null)} />

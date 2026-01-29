@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MainLayout } from "../components/garden/MainLayout";
+import { SEO } from "@/components/seo/SEO";
 import { useMemories } from "@/hooks/useMemories";
 import { Loader2, Mail, ArrowLeft, X, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -25,6 +26,7 @@ const Letters = () => {
 
     return (
         <MainLayout>
+            <SEO title="Love Letters" description="Surat-surat cinta dari hati ke hati. Kumpulan pesan manis untuk masa depan." />
             <div className="min-h-screen bg-pink-50/50 p-4 md:p-8">
                 <div className="max-w-6xl mx-auto">
                     {/* Header */}

@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import { SEO } from "@/components/seo/SEO";
 import { ShoppingBag, Mail, X, Heart } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSound } from "../hooks/useSound";
@@ -114,6 +115,10 @@ const Index = () => {
 
   return (
     <>
+      <SEO
+        title="Home"
+        description="Digital Garden kenangan perjalanan cinta Zekk & Lia. Menyimpan semua momen manis, foto, dan cerita kita."
+      />
       <AnimatePresence>
         {showLanding && (
           <Landing
