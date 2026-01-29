@@ -68,13 +68,9 @@ const sendNotification = async (subject, text, html, to = null) => {
         label: "LIA"
     };
 
-    // If sending TO Lia, prefer sending FROM Lia (if consistent) or Zekk. 
-    const preferLia = (to === 'aka'); // If sending to Aka, prefer sending FROM Lia 
-    // Actually, simple robustness: Try Zekk first, then Lia. Or vice versa.
-
-    // Configured Preference:
-    const firstChoice = preferLia ? liaCreds : zekkCreds;
-    const secondChoice = preferLia ? zekkCreds : liaCreds;
+    // Always try Zekk first (more reliable), then fallback to Lia
+    const firstChoice = zekkCreds;
+    const secondChoice = liaCreds;
 
     try {
         await attemptSend(firstChoice.user, firstChoice.pass, firstChoice.label);
