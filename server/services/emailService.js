@@ -26,7 +26,7 @@ const sendNotification = async (subject, text, html, to = null) => {
         process.env.EMAIL_USER_LIA || 'lianurkhasanah200506@gmail.com'
     ];
 
-    if (to === 'zekk') {
+    if (to === 'aka') {
         recipients = [process.env.EMAIL_USER_ZEKK || 'zakariamujur6@gmail.com'];
     } else if (to === 'lia') {
         recipients = [process.env.EMAIL_USER_LIA || 'lianurkhasanah200506@gmail.com'];
@@ -69,7 +69,7 @@ const sendNotification = async (subject, text, html, to = null) => {
     };
 
     // If sending TO Lia, prefer sending FROM Lia (if consistent) or Zekk. 
-    const preferLia = (to === 'zekk'); // If to Zekk, send from Lia? Or just stick to one? 
+    const preferLia = (to === 'aka'); // If sending to Aka, prefer sending FROM Lia 
     // Actually, simple robustness: Try Zekk first, then Lia. Or vice versa.
 
     // Configured Preference:
