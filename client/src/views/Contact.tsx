@@ -51,11 +51,11 @@ const Contact = () => {
                 title: "Message Sent! 💌",
                 description: `Your love letter to ${recipient === 'aka' ? 'Aka' : 'Lia'} has been sent!`,
             });
-        } catch (error) {
+        } catch (error: any) {
             console.error("Failed to send message:", error);
             toast({
-                title: "Uh oh! 😓",
-                description: "Something went wrong sending your message. Please try again.",
+                title: "Gagal Mengirim 😓",
+                description: error.message || "Something went wrong sending your message. Please try again.",
                 variant: "destructive"
             });
         } finally {

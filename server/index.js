@@ -63,11 +63,10 @@ const apiLimiter = rateLimit({
 });
 app.use('/api', apiLimiter);
 
-// Contact form rate limiter (stricter to prevent email spam)
 const contactLimiter = rateLimit({
     windowMs: 60 * 60 * 1000, // 1 hour
     max: 5, // Limit each IP to 5 contact messages per hour
-    message: { error: 'Terlalu banyak pesan! Coba lagi nanti ya 💌' },
+    message: { error: 'Ups! Kamu mengirim terlalu banyak pesan (maks 5 per jam). Istirahat dulu ya! 💌' },
     standardHeaders: true,
     legacyHeaders: false,
 });

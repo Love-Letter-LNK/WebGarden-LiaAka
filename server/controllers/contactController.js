@@ -20,6 +20,10 @@ const submitMessage = async (req, res) => {
             return res.status(400).json({ error: 'Invalid recipient. Must be "aka" or "lia"' });
         }
 
+        if (message.length < 5) {
+            return res.status(400).json({ error: 'Pesan terlalu pendek, minimal 5 huruf ya!' });
+        }
+
         const contact = await prisma.contactMessage.create({
             data: {
                 recipient,
