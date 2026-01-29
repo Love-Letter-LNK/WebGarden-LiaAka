@@ -63,6 +63,16 @@ const apiLimiter = rateLimit({
 });
 app.use('/api', apiLimiter);
 
+// Contact form rate limiter (stricter to prevent email spam)
+const contactLimiter = rateLimit({
+    windowMs: 60 * 60 * 1000, // 1 hour
+    max: 5, // Limit each IP to 5 contact messages per hour
+    message: { error: 'Terlalu banyak pesan! Coba lagi nanti ya 💌' },
+    standardHeaders: true,
+    legacyHeaders: false,
+});
+app.use('/api/contact', contactLimiter);
+
 // Parse cookies (for JWT httpOnly cookies)
 app.use(cookieParser());
 
