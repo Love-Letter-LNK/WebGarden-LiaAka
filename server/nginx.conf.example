@@ -1,6 +1,9 @@
 server {
     listen 80;
     server_name example.com; # Ganti dengan domain Anda (misal: liaazekk.com)
+    
+    # SECURITY: Hides Nginx version number
+    server_tokens off;
 
     location / {
         proxy_pass http://localhost:3001; # Port aplikasi Node.js Anda
