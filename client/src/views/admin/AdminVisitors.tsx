@@ -45,9 +45,7 @@ const AdminVisitors = () => {
         }
     };
 
-    const getDeviceIcon = (type?: string) => { // Keep this part just to locate the replacement area correctly
-        // ...
-    }; // Actually I should just replace the handleClearOld function and the button rendering
+
 
 
     const getDeviceIcon = (type?: string) => {
