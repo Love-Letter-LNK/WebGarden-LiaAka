@@ -6,6 +6,7 @@ import { Loader2, Plus, Save, Trash2, MapPin, Calendar, Image as ImageIcon, Glob
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { resolveUploadUrl } from "@/lib/uploadUtils";
 
 const AdminTravel = () => {
     const { toast } = useToast();
@@ -311,7 +312,7 @@ const AdminTravel = () => {
                                 {/* Existing Images */}
                                 {existingImages.map((img) => (
                                     <div key={img.id} className="relative w-14 h-14 rounded-md overflow-hidden group border border-gray-200">
-                                        <img src={img.url} className="w-full h-full object-cover" alt="" />
+                                        <img src={resolveUploadUrl(img.url)} className="w-full h-full object-cover" alt="" />
                                         <button
                                             type="button"
                                             onClick={() => removeExistingImage(img.id)}
@@ -385,7 +386,7 @@ const TravelCard = ({ travel, selected, onEdit }: TravelCardProps) => (
         <div className="flex gap-2 items-center">
             <div className="w-8 h-8 bg-gray-100 rounded overflow-hidden flex-shrink-0">
                 {travel.images?.[0]?.url ? (
-                    <img src={travel.images[0].url} alt="" className="w-full h-full object-cover" />
+                    <img src={resolveUploadUrl(travel.images[0].url)} alt="" className="w-full h-full object-cover" />
                 ) : (
                     <Plane className="w-full h-full p-1.5 text-gray-300" />
                 )}

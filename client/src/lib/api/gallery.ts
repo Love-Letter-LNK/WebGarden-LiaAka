@@ -5,6 +5,7 @@ export interface GalleryImage {
     url: string;
     alt?: string;
     category?: string;
+    year?: string;
     sortOrder: number;
     createdAt: string;
 }
@@ -12,6 +13,7 @@ export interface GalleryImage {
 export interface UpdateGalleryDTO {
     alt?: string;
     category?: string;
+    year?: string;
     sortOrder?: number;
 }
 

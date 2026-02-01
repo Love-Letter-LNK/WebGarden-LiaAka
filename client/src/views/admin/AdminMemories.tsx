@@ -10,6 +10,7 @@ import { Plus, Pencil, Trash2, Image as ImageIcon, Loader2, Search, X, Upload, S
 import { format } from "date-fns";
 import { useSound } from "@/hooks/useSound";
 import { cn } from "@/lib/utils";
+import { resolveUploadUrl } from "@/lib/uploadUtils";
 
 const CATEGORIES = ["First Date", "Anniversary", "Travel", "Random", "Letters"];
 const MOODS = ["sweet", "silly", "romantic", "adventure", "chill", "serious"];
@@ -154,7 +155,7 @@ const AdminMemories: React.FC = () => {
                             {/* Image / Cover */}
                             <div className="aspect-video bg-pink-50 relative overflow-hidden">
                                 {memory.images[0] ? (
-                                    <img src={memory.images[0].url} alt={memory.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                                    <img src={resolveUploadUrl(memory.images[0].url)} alt={memory.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                                 ) : (
                                     <div className="w-full h-full flex items-center justify-center text-pink-200 bg-pink-50/50">
                                         <ImageIcon className="w-10 h-10" />
@@ -260,7 +261,7 @@ const AdminMemories: React.FC = () => {
                                     <div className="grid grid-cols-4 gap-3 mb-4">
                                         {editingMemory.images.map((img) => (
                                             <div key={img.id} className="relative aspect-square rounded-lg overflow-hidden group shadow-sm bg-white border border-pink-100">
-                                                <img src={img.url} alt="" className="w-full h-full object-cover" />
+                                                <img src={resolveUploadUrl(img.url)} alt="" className="w-full h-full object-cover" />
                                                 <button type="button" onClick={async () => { await memoriesApi.deleteImage(editingMemory.id, img.id); const updated = await memoriesApi.get(editingMemory.id); setEditingMemory(updated); }} className="absolute top-1 right-1 p-1 bg-red-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
                                                     <X className="w-3 h-3" />
                                                 </button>

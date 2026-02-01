@@ -6,6 +6,7 @@ import { travelApi, TravelLog } from '@/lib/api';
 import { MapPin, Plane, Calendar, Heart, ExternalLink, ChevronLeft, ChevronRight, BookOpen } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSound } from '@/hooks/useSound';
+import { resolveUploadUrl } from '@/lib/uploadUtils';
 
 const Travel = () => {
     usePageTitle("Romantic Journey");
@@ -115,7 +116,7 @@ const Travel = () => {
                                                     <AnimatePresence mode="wait">
                                                         <motion.img
                                                             key={currentImageIndex}
-                                                            src={selectedPlace.images[currentImageIndex]?.url}
+                                                            src={resolveUploadUrl(selectedPlace.images[currentImageIndex]?.url)}
                                                             alt={selectedPlace.name}
                                                             className="w-full h-full object-cover"
                                                             initial={{ opacity: 0, x: 50 }}
@@ -160,7 +161,7 @@ const Travel = () => {
                                                                 onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(i); }}
                                                                 className={`w-12 h-12 rounded-lg overflow-hidden border-2 transition-all ${i === currentImageIndex ? 'border-pink-500 scale-110 shadow-lg' : 'border-white/50 opacity-70 hover:opacity-100'}`}
                                                             >
-                                                                <img src={img.url} className="w-full h-full object-cover" alt="" />
+                                                                <img src={resolveUploadUrl(img.url)} className="w-full h-full object-cover" alt="" />
                                                             </button>
                                                         ))}
                                                     </div>
@@ -304,7 +305,7 @@ const Travel = () => {
                                             >
                                                 <div className="h-48 relative overflow-hidden bg-gray-100">
                                                     {place.images?.[0]?.url ? (
-                                                        <img src={place.images[0].url} alt={place.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                                        <img src={resolveUploadUrl(place.images[0].url)} alt={place.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                                                     ) : (
                                                         <div className="w-full h-full flex items-center justify-center text-pink-200 bg-pink-50">
                                                             <Heart size={48} />
@@ -370,7 +371,7 @@ const Travel = () => {
                                             >
                                                 <div className="h-40 relative overflow-hidden bg-blue-50/50">
                                                     {place.images?.[0]?.url ? (
-                                                        <img src={place.images[0].url} alt={place.name} className="w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-700 grayscale-[20%] group-hover:grayscale-0" />
+                                                        <img src={resolveUploadUrl(place.images[0].url)} alt={place.name} className="w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-700 grayscale-[20%] group-hover:grayscale-0" />
                                                     ) : (
                                                         <div className="w-full h-full flex items-center justify-center text-blue-200">
                                                             <Plane size={48} />

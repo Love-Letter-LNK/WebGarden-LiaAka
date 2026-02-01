@@ -7,6 +7,7 @@ import { format } from "date-fns";
 import { useTheme } from "next-themes";
 import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
 import { useAuth } from "@/hooks/useAuth";
+import { resolveUploadUrl } from "@/lib/uploadUtils";
 
 interface MemoryBookModalProps {
     memory: Memory;
@@ -111,7 +112,7 @@ export const MemoryBookModal: React.FC<MemoryBookModalProps> = ({
                                 <div className="w-full h-full relative overflow-hidden bg-gray-100">
                                     <motion.img
                                         key={currentImageIndex}
-                                        src={currentImage.url}
+                                        src={resolveUploadUrl(currentImage.url)}
                                         alt={currentImage.alt}
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}

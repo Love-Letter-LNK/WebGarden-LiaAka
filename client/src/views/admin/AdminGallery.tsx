@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Plus, Trash2, Loader2, Upload, Image as ImageIcon, X, Camera, Filter, Pencil, Save } from "lucide-react";
 import { useSound } from "@/hooks/useSound";
 import { cn } from "@/lib/utils";
+import { resolveUploadUrl } from "@/lib/uploadUtils";
 
 const CATEGORIES = ["First Date", "Anniversary", "Travel", "Random", "Letters"];
 
@@ -180,7 +181,7 @@ const AdminGallery: React.FC = () => {
                             {/* Image */}
                             <div className="aspect-square bg-gray-50 relative overflow-hidden">
                                 <img
-                                    src={img.url}
+                                    src={resolveUploadUrl(img.url)}
                                     alt={img.alt || ''}
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                 />
@@ -321,7 +322,7 @@ const AdminGallery: React.FC = () => {
                         <div className="space-y-4 py-2">
                             <div className="flex justify-center mb-4">
                                 <div className="h-40 w-40 rounded-lg overflow-hidden border-2 border-gray-100 shadow-sm">
-                                    <img src={editingImage.url} alt="preview" className="w-full h-full object-cover" />
+                                    <img src={resolveUploadUrl(editingImage.url)} alt="preview" className="w-full h-full object-cover" />
                                 </div>
                             </div>
 
